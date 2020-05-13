@@ -12,6 +12,8 @@ export default StyleSheet.create({
        ...Helpers.center,
        borderColor: Colors.accent,
        borderWidth: 1,
-       borderRadius: 20       
+       borderRadius: 20,
+       width: '100%',
+       height: '100%'
     }
  })
