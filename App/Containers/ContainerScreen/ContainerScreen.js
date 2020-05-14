@@ -8,7 +8,7 @@ const SearchScreen = (props) => {
     const [searchFilter, setSearchFilter] = useState('')
     return (
     <View style={styles.screenContainer}>
-        <Title>{title}</Title>
+        { title.length > 0 && <Title>{title}</Title> }
         <View style={styles.screenInnerContainer}>
             {children}
         </View>
