@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     screenInnerContainer: {
         ...Helpers.fill,
-        ...Metrics.mediumHorizontalPadding,
+        ...Metrics.smallHorizontalPadding,
         ...Metrics.smallVerticalPadding
     }
  })

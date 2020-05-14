@@ -3,14 +3,15 @@ import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
 export default StyleSheet.create({
     container: {
        flex: 1,
-       ...Helpers.crossStart
+       ...Helpers.crossStart,
+       marginRight: Metrics.tiny
     },
     input: {
        backgroundColor: Colors.white,
        paddingLeft: 5,
        paddingTop: 0,
        paddingBottom: 0,
-       width: '100%',
+       width: '100%'
     },
     rounded: {
       borderColor: Colors.inputsBorder,
