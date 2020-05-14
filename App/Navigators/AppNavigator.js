@@ -3,6 +3,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import OptionsScreen from 'App/Containers/Options/OptionsScreen'
 import ProfileScreen from 'App/Containers/ProfileScreen/ProfileScreen'
+import VisitScreen from 'App/Containers/VisitScreen/VisitScreen'
 import SearchScreen from 'App/Containers/SearchScreen/SearchScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
@@ -16,10 +17,11 @@ const StackNavigator = createStackNavigator(
   {
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
-    MainScreen: ProfileScreen,
+    MainScreen: VisitScreen,
     LoginScreen: LoginScreen,
     OptionsScreen: OptionsScreen,
     ProfileScreen: ProfileScreen,
+    VisitScreen: VisitScreen,
     SearchScreen: SearchScreen,
     ExampleScreen: ExampleScreen,
     // Create the application routes here (the key is the route name, the value is the target screen)
