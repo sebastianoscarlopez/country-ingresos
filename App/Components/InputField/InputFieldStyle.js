@@ -4,7 +4,8 @@ export default StyleSheet.create({
     container: {
        flex: 1,
        ...Helpers.crossStart,
-       marginRight: Metrics.tiny
+       marginRight: Metrics.tiny,
+       justifyContent: 'flex-end',
     },
     input: {
        backgroundColor: Colors.white,

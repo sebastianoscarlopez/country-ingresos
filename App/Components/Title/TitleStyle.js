@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     ...Metrics.smallHorizontalPadding,
     backgroundColor: Colors.white,
-    width: '90%'
+    width: '100%'
   },
   title:{
       ...Fonts.normal,
