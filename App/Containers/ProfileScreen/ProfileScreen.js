@@ -4,7 +4,6 @@ import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputField, Label } from 'App/Components'
 import styles from '../ContainersStyle'
 import {
-  profileTitle,
   nameLabel,
   lastNameLabel,
   phoneLabel,
@@ -62,7 +61,7 @@ const ProfileScreen = (props) => {
     }]
   ]
   return (
-    <ContainerScreen title={profileTitle}>
+    <ContainerScreen>
         <View style={styles.columnContainer}>
             {
                 fields.map((field, index) => {

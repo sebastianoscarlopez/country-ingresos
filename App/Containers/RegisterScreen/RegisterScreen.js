@@ -4,7 +4,7 @@ import NavigatorActions from 'App/Stores/Navigator/Actions'
 import { TextInput, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputField, Button } from 'App/Components'
-import { registerTitle, registerLegend, documentLabel, eMailLabel, allotmentLabel, acceptButton } from 'App/Assets/Strings'
+import { registerLegend, documentLabel, eMailLabel, allotmentLabel, acceptButton } from 'App/Assets/Strings'
 import styles from '../ContainersStyle'
 
 const RegisterScreen = (props) => {
@@ -14,7 +14,7 @@ const RegisterScreen = (props) => {
     const [eMail, setEMail] = useState('')
     const [allotment, setAllotment] = useState('')
     return (
-        <ContainerScreen title={registerTitle}>
+        <ContainerScreen>
             <Text style={{borderWidth:1, padding: 5, marginBottom: 50, textAlign: 'center'}}>{registerLegend}</Text>
             <View style={{...styles.columnContainer, paddingLeft:50, paddingRight:50, alignItems:'center'}}>
                 <View style={styles.rowContainer}>

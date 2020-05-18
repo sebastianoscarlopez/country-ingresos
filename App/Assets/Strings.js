@@ -1,7 +1,6 @@
 export const visitTitle = 'Ingresos de visitas - Editar/Crear'
 export const searchTitle = 'Búsqueda de Propietarios'
 export const profileTitle = 'Edición de datos personales'
-export const registerTitle = ''
 export const searchLabel = 'Ingrese búsqueda de propietario/lote'
 export const nameLabel = 'Nombre'
 export const lastNameLabel = 'Apellido'

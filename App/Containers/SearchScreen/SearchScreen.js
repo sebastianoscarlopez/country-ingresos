@@ -2,7 +2,7 @@ import React, {useState } from 'react'
 import { TextInput, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputField } from 'App/Components'
-import { searchTitle, searchLabel } from 'App/Assets/Strings'
+import { searchLabel } from 'App/Assets/Strings'
 import mock from 'App/Assets/peopleMock.js'
 import { FlatList } from 'react-native-gesture-handler'
 
@@ -39,7 +39,7 @@ const SearchScreen = (props) => {
         )
 
     return (
-        <ContainerScreen title={searchTitle}>
+        <ContainerScreen>
             <View style={{height:60, marginBottom:10}}>
             <InputField label={searchLabel} value={searchFilter} onChangeText={setSearchFilter} rounded />
             </View>
@@ -52,9 +52,11 @@ const SearchScreen = (props) => {
                 style={{
                     padding:5,
                     backgroundColor: '#ffda15',
-       borderColor: 'gray',
-       borderWidth: 1,
-       borderRadius: 5}}
+                    borderColor: 'gray',
+                    borderWidth: 1,
+                    borderRadius: 5
+                }}
+                keyExtractor={(item) => item.allotment}
             />
                 
             </View>
