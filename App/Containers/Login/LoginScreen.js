@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 import { useDispatch } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
-import { TextInput, Text, View, Button } from 'react-native'
+import { TextInput, Text, SafeAreaView, Button } from 'react-native'
 
 const LoginScreen = (props) => {
     const dispatch = useDispatch()
@@ -10,10 +10,10 @@ const LoginScreen = (props) => {
     const onSignUp = () => {
         navigate('OptionsScreen')
     }
-    return (<View>
+    return (<SafeAreaView>
         <TextInput placeholder="Usuario" value={user} onChangeText={setUser} />
         <Text>User:{user}</Text>
         <Button title="Entrar" onPress={onSignUp}></Button>
-    </View>)
+    </SafeAreaView>)
 }
 export default LoginScreen

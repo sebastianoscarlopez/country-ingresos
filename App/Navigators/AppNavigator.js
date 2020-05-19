@@ -18,8 +18,12 @@ import { visitTitle, searchTitle, profileTitle, registerTitle } from 'App/Assets
  * @see https://reactnavigation.org/docs/en/hello-react-navigation.html#creating-a-stack-navigator
  */
 const defaultNavigationOptions = {
+  headerForceInset: {
+    top: 'never',
+    bottom: 'never'
+  },
   headerStyle: {
-    height: 30
+    height: 30,
   },
   headerTitleStyle: {
     fontSize: 18,
@@ -30,6 +34,13 @@ const StackNavigator = createStackNavigator(
   {
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
+    MainScreen: {
+      screen: OptionsScreen,
+      navigationOptions:{
+        ...defaultNavigationOptions,
+        header: null
+      }
+    },
     LoginScreen: LoginScreen,
     OptionsScreen: {
       screen: OptionsScreen,
@@ -76,7 +87,7 @@ const StackNavigator = createStackNavigator(
   },
   {
     // By default the application will show the splash screen
-    initialRouteName: 'RegisterScreen',
+    initialRouteName: 'MainScreen',
     // See https://reactnavigation.org/docs/en/stack-navigator.html#stacknavigatorconfig
   }
 )

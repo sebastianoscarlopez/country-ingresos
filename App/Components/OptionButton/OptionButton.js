@@ -1,11 +1,11 @@
 import React from 'react'
-import {View, TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, Text, SafeAreaView } from 'react-native'
 import styles from './OptionButtonStyle.js'
 
 export default (props) => {
     const { onPress, icon } = props
     return (
-        <View
+        <SafeAreaView
             width={100}
             height={100}
         >
@@ -14,6 +14,6 @@ export default (props) => {
             onPress={onPress}>
             <Text style={styles.text}>{icon}</Text>
         </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     )
 }

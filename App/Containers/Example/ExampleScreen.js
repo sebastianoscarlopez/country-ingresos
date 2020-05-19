@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, SafeAreaView, Button, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -26,7 +26,7 @@ class ExampleScreen extends React.Component {
 
   render() {
     return (
-      <View
+      <SafeAreaView
         style={[
           Helpers.fill,
           Helpers.rowMain,
@@ -37,16 +37,16 @@ class ExampleScreen extends React.Component {
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View>
-            <View style={Style.logoContainer}>
+          <SafeAreaView>
+            <SafeAreaView style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
-            </View>
+            </SafeAreaView>
             <Text style={Style.text}>To get started, edit App.js</Text>
             <Text style={Style.instructions}>{instructions}</Text>
             {this.props.userErrorMessage ? (
               <Text style={Style.error}>{this.props.userErrorMessage}</Text>
             ) : (
-              <View>
+              <SafeAreaView>
                 <Text style={Style.result}>
                   {"I'm a fake user, my name is "}
                   {this.props.user.name}
@@ -54,16 +54,16 @@ class ExampleScreen extends React.Component {
                 <Text style={Style.result}>
                   {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
                 </Text>
-              </View>
+              </SafeAreaView>
             )}
             <Button
               style={ApplicationStyles.button}
               onPress={() => this._fetchUser()}
               title="Refresh"
             />
-          </View>
+          </SafeAreaView>
         )}
-      </View>
+      </SafeAreaView>
     )
   }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TextInput, Text } from 'react-native'
+import { TextInput, Text, SafeAreaView } from 'react-native'
 import Label from '../Label/Label'
 import styles from './InputFieldStyle.js'
 
@@ -10,11 +10,11 @@ export default (props) => {
         ...(rounded ? styles.rounded : {})
     }
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {
                 label && <Label>{label}</Label>
             }
             <TextInput style={inputStyle}></TextInput>
-        </View>
+        </SafeAreaView>
     )
 }
