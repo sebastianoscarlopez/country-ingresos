@@ -15,4 +15,6 @@ export default {
   accent:'#F28500',
   success: '#28a745',
   error: '#dc3545',
+  backgroundTop: '#ffffff',
+  backgroundBottom: '#d1d3d4'
 }

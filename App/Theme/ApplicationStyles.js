@@ -7,7 +7,7 @@ import Colors from './Colors'
 
 export default {
   button: {
-    backgroundColor: Colors.error,
+    backgroundColor: Colors.white,
     fontColor: Colors.error,
   },
 }

@@ -1,11 +1,10 @@
 import React from 'react'
-import { Image, SafeAreaView } from 'react-native'
+import { Image, View, SafeAreaView } from 'react-native'
 import { Images } from 'App/Theme'
+import { vw, vh } from 'App/Helpers/DimensionsHelper'
 
 export default (props) => {
     return (
-        <SafeAreaView style={{borderColor:'gray', borderBottomWidth:10}}>
-            <Image source={Images.logo} style={{margin:2, height:100, width:250,resizeMode: 'contain'}}/>
-        </SafeAreaView>
+        <Image source={Images.header} resizeMode="contain" style={{ width: vw(100), height: vw(42) }}/>
     )
 }

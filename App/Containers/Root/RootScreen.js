@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 import { PropTypes } from 'prop-types'
-import { Helpers } from 'App/Theme'
+import { Colors, Helpers } from 'App/Theme'
 import { Header } from 'App/Components'
 
 class RootScreen extends Component {
@@ -17,13 +17,13 @@ class RootScreen extends Component {
   render() {
     return (
       <SafeAreaView style={Helpers.fill}>
-        <Header></Header>
-        <AppNavigator
-          // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
-          ref={(navigatorRef) => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
+        <Header />
+          <AppNavigator
+            // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
+            ref={(navigatorRef) => {
+              NavigationService.setTopLevelNavigator(navigatorRef)
+            }}
+          />
       </SafeAreaView>
     )
   }
