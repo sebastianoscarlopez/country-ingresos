@@ -8,6 +8,7 @@
 export default {
   transparent: 'rgba(0,0,0,0)',
   // Example colors:
+  black: '#202020',
   white: '#ffffff',
   text: '#212529',
   inputsBorder: '#0000ca',
@@ -16,5 +17,6 @@ export default {
   success: '#28a745',
   error: '#dc3545',
   backgroundTop: '#ffffff',
-  backgroundBottom: '#d1d3d4'
+  backgroundBottom: '#d1d3d4',
+  disabled:'#AAAAAA',
 }

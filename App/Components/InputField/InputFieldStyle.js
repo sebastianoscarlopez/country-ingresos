@@ -5,7 +5,7 @@ export default StyleSheet.create({
        flex: 1,
        ...Helpers.crossStart,
        marginRight: Metrics.tiny,
-       justifyContent: 'flex-end',
+       justifyContent: 'center',
     },
     input: {
        backgroundColor: Colors.white,

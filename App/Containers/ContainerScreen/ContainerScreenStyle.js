@@ -1,14 +1,11 @@
 import { StyleSheet } from 'react-native'
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
 
 export default StyleSheet.create({
     screenContainer: {
-        backgroundColor: Colors.primary,
-        ...Helpers.fill
+        flex: 1,
+        backgroundColor:'transparent',
     },
     screenInnerContainer: {
-        ...Helpers.fill,
-        ...Metrics.smallHorizontalPadding,
-        ...Metrics.smallVerticalPadding
+        flex: 1,
     }
  })

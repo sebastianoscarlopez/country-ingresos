@@ -26,4 +26,7 @@ export default StyleSheet.create({
   normal: {
     fontSize: size.regular,
   },
+  big: {
+    fontSize: size.h3,
+  },
 })

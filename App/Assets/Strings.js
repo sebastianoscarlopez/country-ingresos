@@ -6,9 +6,9 @@ export const nameLabel = 'Nombre'
 export const lastNameLabel = 'Apellido'
 export const phoneLabel = 'Teléfono'
 export const numberLabel = 'Número de casa'
-export const allotmentLabel = 'Lote principal'
+export const allotmentLabel = 'LOTE'
 export const allotmentOthersLabel = 'Otros Lotes'
-export const eMailLabel = 'E-Mail'
+export const eMailLabel = 'E-MAIL'
 export const pictureLabel = 'Foto'
 export const documentLabel = 'DNI'
 export const dateLabel = 'Fecha ingreso'
@@ -19,6 +19,7 @@ export const observationLabel = 'Observaciones'
 
 export const acceptButton = 'ACEPTAR'
 
-export const registerLegend = `Primer Ingreso, complete los siguientes datos para obtener su clave.
-
-Esta será enviada a su E-Mail`
+export const registerLegend_1 = 'PRIMER INGRESO'
+export const registerLegend_2 = `Complete los siguientes datos
+para obtener su clave.`
+export const registerLegend_3 = 'Esta será enviada a su E-Mail'
