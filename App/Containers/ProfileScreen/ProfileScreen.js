@@ -67,10 +67,10 @@ const ProfileScreen = (props) => {
                 fields.map((field, index) => {
                     return (
                         <SafeAreaView key={index} style={styles.rowContainer}>
-                            <InputField label={field[0].label} value={field[0].value} onChangeText={field[0].updater} />
+                            <InputField placeholder={field[0].label} value={field[0].value} onChangeText={field[0].updater} />
                             <SafeAreaView style={{width:5}}/>
                             {
-                                field.length > 1 && <InputField label={field[1].label} value={field[1].value} onChangeText={field[1].updater} />
+                                field.length > 1 && <InputField placeholder={field[1].label} value={field[1].value} onChangeText={field[1].updater} />
                             }
                         </SafeAreaView>
                     )

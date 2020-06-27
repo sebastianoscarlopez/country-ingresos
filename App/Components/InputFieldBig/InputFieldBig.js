@@ -2,8 +2,8 @@ import React from 'react'
 import { TextInput } from 'react-native'
 import styles from './InputFieldBigStyle.js'
 
-export default ({ label }) => {
+export default (props) => {
     return (
-        <TextInput placeholder={label} style={styles.input}></TextInput>
+        <TextInput {...props} style={styles.input}></TextInput>
     )
 }

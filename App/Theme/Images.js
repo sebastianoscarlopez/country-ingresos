@@ -10,4 +10,5 @@ export default {
   password: require('App/Assets/Images/password.png'),
   logo: require('App/Assets/Images/logo.png'),
   send: require('App/Assets/Images/send.png'),
+  login: require('App/Assets/Images/login.png'),
 }

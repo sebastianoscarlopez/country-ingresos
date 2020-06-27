@@ -40,13 +40,13 @@ const RegisterScreen = (props) => {
         }}
       >
         <View style={styles.inputContainer}>
-            <InputFieldBig label={documentLabel} style={styles.input} value={document} onChangeText={setEMail} rounded />
+            <InputFieldBig keyboardType='numeric' maxLength={10} placeholder={documentLabel} style={styles.input} value={document} onChangeText={setDocument} rounded />
         </View>
         <View style={styles.inputContainer}>
-          <InputFieldBig label={eMailLabel} value={eMail} onChangeText={setEMail} rounded />
+          <InputFieldBig placeholder={eMailLabel} value={eMail} onChangeText={setEMail} rounded />
         </View>
         <View style={styles.inputContainer}>
-          <InputFieldBig label={allotmentLabel} value={allotment} onChangeText={setEMail} rounded />
+          <InputFieldBig placeholder={allotmentLabel} value={allotment} onChangeText={setAllotment} rounded />
         </View>
       </View>
       <View style={styles.sendContainer} >
@@ -55,40 +55,4 @@ const RegisterScreen = (props) => {
     </SafeAreaView>
   )
 }
-
-/*
-
-        
-        <Text style={{ borderWidth: 1, padding: 5, marginBottom: 50, textAlign: 'center' }}>
-        {registerLegend}
-      </Text>
-      <SafeAreaView
-        style={{
-          ...styles.columnContainer,
-          paddingLeft: 50,
-          paddingRight: 50,
-          alignItems: 'center',
-        }}
-      >
-        <SafeAreaView style={styles.rowContainer}>
-          <InputField label={documentLabel} value={document} onChangeText={setDocument} rounded />
-        </SafeAreaView>
-        <SafeAreaView style={styles.rowContainer}>
-          <InputField label={eMailLabel} value={eMail} onChangeText={setEMail} rounded />
-        </SafeAreaView>
-        <SafeAreaView style={styles.rowContainer}>
-          <InputField
-            label={allotmentLabel}
-            value={allotment}
-            onChangeText={setAllotment}
-            rounded
-          />
-        </SafeAreaView>
-        <SafeAreaView style={styles.rowContainer}>
-          <SafeAreaView style={{ width: '100%', alignItems: 'center', paddingTop: 20 }}>
-            <Button onPress={() => navigate('OptionsScreen')}>{acceptButton}</Button>
-          </SafeAreaView>
-        </SafeAreaView>
-      </SafeAreaView>
-*/
 export default RegisterScreen

@@ -14,7 +14,7 @@ export default (props) => {
             {
                 label && <Label>{label}</Label>
             }
-            <TextInput style={inputStyle}></TextInput>
+            <TextInput {...props} style={inputStyle}></TextInput>
         </SafeAreaView>
     )
 }

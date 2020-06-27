@@ -41,7 +41,7 @@ const SearchScreen = (props) => {
     return (
         <ContainerScreen>
             <SafeAreaView style={{height:60, marginBottom:10}}>
-            <InputField label={searchLabel} value={searchFilter} onChangeText={setSearchFilter} rounded />
+            <InputField placeholder={searchLabel} value={searchFilter} onChangeText={setSearchFilter} rounded />
             </SafeAreaView>
             <SafeAreaView style={{flex:1, flexDirection: 'column', height: '10%',}}>
             
