@@ -2,7 +2,7 @@ import React from 'react'
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
-import OptionsScreen from 'App/Containers/Options/OptionsScreen'
+import OptionsScreen from 'App/Containers/OptionsScreen/OptionsScreen'
 import ProfileScreen from 'App/Containers/ProfileScreen/ProfileScreen'
 import VisitScreen from 'App/Containers/VisitScreen/VisitScreen'
 import RegisterScreen from 'App/Containers/RegisterScreen/RegisterScreen'
@@ -35,7 +35,7 @@ const StackNavigator = createStackNavigator(
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
     MainScreen: {
-      screen: LoginScreen,
+      screen: VisitScreen,
       navigationOptions:{
         ...defaultNavigationOptions,
         header: null

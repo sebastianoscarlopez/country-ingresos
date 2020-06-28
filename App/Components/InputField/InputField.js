@@ -1,20 +1,14 @@
-import React from 'react'
-import { TextInput, Text, SafeAreaView } from 'react-native'
+import React, { forwardRef } from 'react'
+import { TextInput, Text, View } from 'react-native'
 import Label from '../Label/Label'
 import styles from './InputFieldStyle.js'
 
-export default (props) => {
-    const { label, rounded } = props
-    const inputStyle = {
-        ...styles.input,
-        ...(rounded ? styles.rounded : {})
-    }
-    return (
-        <SafeAreaView style={styles.container}>
-            {
-                label && <Label>{label}</Label>
-            }
-            <TextInput {...props} style={inputStyle}></TextInput>
-        </SafeAreaView>
-    )
-}
+export default forwardRef((props, ref) => {
+  const { label, rounded } = props
+  return (
+    <View style={{ flex: 1 }}>
+      <TextInput ref={ref} {...props} style={styles.input} />
+      {label && <Label>{label}</Label>}
+    </View>
+  )
+})

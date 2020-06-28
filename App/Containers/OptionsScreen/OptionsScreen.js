@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
 import { Text, View } from 'react-native'
 import { OptionButton } from 'App/Components'
+import { Header } from '../../Components'
 import { Helpers, Images } from 'App/Theme'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 
@@ -12,6 +13,7 @@ const OptionsScreen = (props) => {
 
   return (
     <ContainerScreen>
+      <Header />
       <View style={Helpers.fillRowCenter}>
         <OptionButton
           icon={Images.visit}

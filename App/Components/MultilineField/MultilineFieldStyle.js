@@ -15,7 +15,7 @@ export default StyleSheet.create({
        paddingTop: 5,
        paddingBottom: 5,
        width: '100%',
-       borderBottomColor: Colors.inputsBorder,
-       borderBottomWidth: 1,
+       borderColor: Colors.inputsBorder,
+       borderWidth: 1,
     }
  })

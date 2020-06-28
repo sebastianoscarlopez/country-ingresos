@@ -1,11 +1,10 @@
 import React, { useState, Children } from 'react'
 import { SafeAreaView } from 'react-native'
 import styles from './ContainerScreenStyle'
-import { Header } from '../../Components'
 import { Helpers, Metrics, Images, Fonts, Colors } from 'App/Theme'
 import LinearGradient from 'react-native-linear-gradient'
 
-const SearchScreen = (props) => {
+const ContainerScreen = (props) => {
   const { children } = props
   const [searchFilter, setSearchFilter] = useState('')
   return (
@@ -14,7 +13,6 @@ const SearchScreen = (props) => {
         colors={[Colors.backgroundTop, Colors.backgroundBottom]}
         style={styles.screenInnerContainer}
       >
-        <Header />
         <SafeAreaView style={styles.screenInnerContainer}>{children}</SafeAreaView>
       </LinearGradient>
     </SafeAreaView>
@@ -30,4 +28,4 @@ const SearchScreen = (props) => {
         </SafeAreaView>
               </LinearGradient>
 */
-export default SearchScreen
+export default ContainerScreen

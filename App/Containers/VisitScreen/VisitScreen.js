@@ -1,87 +1,127 @@
-import React, { useState } from 'react'
-import { TextInput, Text, SafeAreaView } from 'react-native'
+import React, { useState, useRef, useEffect } from 'react'
+import { TextInput, Text, TouchableHighlight, SafeAreaView, View } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
-import { InputField, Label } from 'App/Components'
+import { Modal, Button, MultilineField, InputField, Label } from 'App/Components'
+import { Header } from '../../Components'
 import styles from '../ContainersStyle'
+import { Colors, Images } from 'App/Theme'
 import {
   nameLabel,
   documentLabel,
-  dateLabel,
+  dateLabel as checkInDateLabel,
   checkInTimeLabel,
   requiredLabel,
   patentLabel,
-  observationLabel
+  observationLabel,
 } from 'App/Assets/Strings'
+import { vh } from 'App/Helpers/DimensionsHelper'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const VisitScreen = (props) => {
   const [name, setName] = useState('')
   const [document, setDocumentName] = useState('')
-  const [date, setDate] = useState('')
-  const [checkInTime, setCheckInTime] = useState('')
-  const [required, setRequired] = useState('')
+  const [checkInDate, setCheckInDate] = useState(new Date())
+  const [checkInTimeText, setCheckInTimeText] = useState('')
+  const [checkInTime, setCheckInTime] = useState(new Date())
+  const [checkInDateText, setCheckInDateText] = useState('')
+  const [required, setRequired] = useState(false)
   const [patent, setPatent] = useState('')
   const [observation, setObservation] = useState('')
-  const fields = [
-    [{
-      label: nameLabel,
-      value: name,
-      updater: setName,
-    },
-    {
-      label: documentLabel,
-      value: document,
-      updater: setDocumentName,
-    }],
-    [{
-      label: dateLabel,
-      value: date,
-      updater: setDate,
-    },
-    {
-      label: checkInTimeLabel,
-      value: checkInTime,
-      updater: setCheckInTime,
-    }],
-    [{
-      label: requiredLabel,
-      value: required,
-      updater: setRequired,
-    },
-    {
-      label: patentLabel,
-      value: patent,
-      updater: setPatent,
-    },
-    {
-      label: observationLabel,
-      value: observation,
-      updater: setObservation,
-    }]
-  ]
+  const [modalDateVisible, setModalDateVisible] = useState(false)
+  const [modalTimeVisible, setModalTimeVisible] = useState(false)
+  const refInputDate = useRef(null)
+  const refInputTime = useRef(null)
+  useEffect(() => {
+    setCheckInDateText(
+      checkInDate.toLocaleDateString('es-AR', { month: '2-digit', day: '2-digit', year: 'numeric' })
+    )
+  }, [modalDateVisible])
+  useEffect(() => {
+    setCheckInTimeText(checkInDate.toLocaleTimeString('es-AR'))
+  }, [modalTimeVisible])
   return (
-    <ContainerScreen>
-        <SafeAreaView style={styles.columnContainer}>
-            {
-                fields.map((field, index) => {
-                    return (
-                        <SafeAreaView key={index} style={styles.rowContainer}>
-                            <InputField placeholder={field[0].label} value={field[0].value} onChangeText={field[0].updater} />
-                            <SafeAreaView style={{width:5}}/>
-                            {
-                                field.length > 1 && <InputField placeholder={field[1].label} value={field[1].value} onChangeText={field[1].updater} />
-                            }
-                        </SafeAreaView>
-                    )
-                })
-            }
-            <SafeAreaView style={styles.rowContainer}>
-                <SafeAreaView style={styles.containerPicture}>
-                    <Label>{observationLabel}</Label>
-                    <SafeAreaView style={{width:'100%', height:150, backgroundColor:'#ffffff'}}/>                
-                </SafeAreaView>
-            </SafeAreaView>
-        </SafeAreaView>
-    </ContainerScreen>
+    <SafeAreaView>
+      <Modal onRequestClose={() => setModalDateVisible(false)} visible={modalDateVisible}>
+        <View style={{ backgroundColor: Colors.white, marginTop: 200 }}>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={checkInDate}
+            mode={'date'}
+            is24Hour={true}
+            display="default"
+            onChange={setCheckInTime}
+          />
+        </View>
+      </Modal>
+      <Modal onRequestClose={() => setModalTimeVisible(false)} visible={modalTimeVisible}>
+        <View style={{ backgroundColor: Colors.white, marginTop: 200 }}>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={checkInTime}
+            mode={'time'}
+            is24Hour={true}
+            display="default"
+            onChange={setCheckInTime}
+          />
+        </View>
+      </Modal>
+      <Header icon={Images.visit} text="Visitas" />
+      <View style={{ padding: 20, height: vh(70) }}>
+        <View style={{ ...styles.rowContainer }}>
+          <InputField label={nameLabel} value={name} onChangeText={setName} />
+        </View>
+        <View style={styles.rowContainer}>
+          <InputField label={documentLabel} value={document} onChangeText={setDocumentName} />
+        </View>
+        <View style={styles.rowContainer}>
+          <InputField
+            ref={refInputDate}
+            onFocus={() => {
+              refInputDate.current.blur()
+              setModalDateVisible(true)
+            }}
+            label={checkInDateLabel}
+            value={checkInDateText}
+            focusable={false}
+          />
+          <View style={{ width: 50 }} />
+          <InputField
+            ref={refInputTime}
+            onFocus={() => {
+              refInputTime.current.blur()
+              setModalTimeVisible(true)
+            }}
+            label={checkInTimeLabel}
+            value={checkInTime}
+          />
+        </View>
+        <View style={styles.rowContainer}>
+          <Button
+            textStyle={{ margin: 7 }}
+            style={{ backgroundColor: required ? Colors.error : Colors.success }}
+            label={requiredLabel}
+            value={required}
+            onPress={() => setRequired(!required)}
+          >
+            {required ? 'SI' : 'NO'}
+          </Button>
+          <View style={{ width: 50 }} />
+          <InputField label={patentLabel} value={patent} onChangeText={setPatent} />
+        </View>
+        <View style={{ ...styles.rowContainer, marginTop: 20 }}>
+          <Label>{observationLabel}</Label>
+        </View>
+        <View style={{ ...styles.rowContainer, marginTop: 0 }}>
+          <MultilineField maxLength={200} value={observation} onChangeText={setObservation} />
+        </View>
+      </View>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        <Button>GUARDAR</Button>
+        <View style={{ width: 50 }} />
+        <Button style={{ backgroundColor: Colors.error }}>CANCELAR</Button>
+      </View>
+    </SafeAreaView>
   )
 }
 export default VisitScreen

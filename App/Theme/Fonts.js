@@ -4,7 +4,7 @@ const size = {
   h1: 38,
   h2: 34,
   h3: 24,
-  input: 18,
+  input: 22,
   regular: 17,
   medium: 14,
   small: 12,
@@ -25,6 +25,12 @@ export default StyleSheet.create({
   },
   normal: {
     fontSize: size.regular,
+  },
+  label: {
+    fontSize: size.medium,
+  },
+  input: {
+    fontSize: size.input,
   },
   big: {
     fontSize: size.h3,
