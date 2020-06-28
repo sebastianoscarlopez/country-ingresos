@@ -19,54 +19,55 @@ import { vh } from 'App/Helpers/DimensionsHelper'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const VisitScreen = (props) => {
+  const now = new Date(new Date().getTime() + 30*60000)
+  const minCheckInDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())
   const [name, setName] = useState('')
   const [document, setDocumentName] = useState('')
-  const [checkInDate, setCheckInDate] = useState(new Date())
+  const [checkInDate, setCheckInDate] = useState(minCheckInDate)
   const [checkInTimeText, setCheckInTimeText] = useState('')
-  const [checkInTime, setCheckInTime] = useState(new Date())
   const [checkInDateText, setCheckInDateText] = useState('')
   const [required, setRequired] = useState(false)
   const [patent, setPatent] = useState('')
   const [observation, setObservation] = useState('')
   const [modalDateVisible, setModalDateVisible] = useState(false)
-  const [modalTimeVisible, setModalTimeVisible] = useState(false)
+  const [modePicker, setModePicker] = useState('date')
   const refInputDate = useRef(null)
   const refInputTime = useRef(null)
   useEffect(() => {
     setCheckInDateText(
       checkInDate.toLocaleDateString('es-AR', { month: '2-digit', day: '2-digit', year: 'numeric' })
     )
+    setCheckInTimeText(
+      checkInDate.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+    )
   }, [modalDateVisible])
-  useEffect(() => {
-    setCheckInTimeText(checkInDate.toLocaleTimeString('es-AR'))
-  }, [modalTimeVisible])
+
+  const onChangeDate = (event, selectedDate) => {
+    const currentDate = selectedDate || checkInDate
+    if(currentDate >= minCheckInDate){
+      setCheckInDate(currentDate)
+    }
+  }
+  const onFocusCheckIn = (mode, ref) => {
+    ref.current.blur()
+    setModePicker(mode)
+    setModalDateVisible(true)
+  }
   return (
     <SafeAreaView>
       <Modal onRequestClose={() => setModalDateVisible(false)} visible={modalDateVisible}>
-        <View style={{ backgroundColor: Colors.white, marginTop: 200 }}>
+        <View style={{ backgroundColor: Colors.white, margin: 50, marginTop: 200 }}>
           <DateTimePicker
             testID="dateTimePicker"
             value={checkInDate}
-            mode={'date'}
+            mode={modePicker}
             is24Hour={true}
             display="default"
-            onChange={setCheckInTime}
+            onChange={onChangeDate}
           />
         </View>
       </Modal>
-      <Modal onRequestClose={() => setModalTimeVisible(false)} visible={modalTimeVisible}>
-        <View style={{ backgroundColor: Colors.white, marginTop: 200 }}>
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={checkInTime}
-            mode={'time'}
-            is24Hour={true}
-            display="default"
-            onChange={setCheckInTime}
-          />
-        </View>
-      </Modal>
-      <Header icon={Images.visit} text="Visitas" />
+      <Header icon={Images.visitHeader} text="Visitas" />
       <View style={{ padding: 20, height: vh(70) }}>
         <View style={{ ...styles.rowContainer }}>
           <InputField label={nameLabel} value={name} onChangeText={setName} />
@@ -77,10 +78,7 @@ const VisitScreen = (props) => {
         <View style={styles.rowContainer}>
           <InputField
             ref={refInputDate}
-            onFocus={() => {
-              refInputDate.current.blur()
-              setModalDateVisible(true)
-            }}
+            onFocus={onFocusCheckIn.bind(null, 'date', refInputDate)}
             label={checkInDateLabel}
             value={checkInDateText}
             focusable={false}
@@ -88,12 +86,9 @@ const VisitScreen = (props) => {
           <View style={{ width: 50 }} />
           <InputField
             ref={refInputTime}
-            onFocus={() => {
-              refInputTime.current.blur()
-              setModalTimeVisible(true)
-            }}
+            onFocus={onFocusCheckIn.bind(null, 'time', refInputTime)}
             label={checkInTimeLabel}
-            value={checkInTime}
+            value={checkInTimeText}
           />
         </View>
         <View style={styles.rowContainer}>
