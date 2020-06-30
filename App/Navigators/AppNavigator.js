@@ -5,6 +5,7 @@ import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import OptionsScreen from 'App/Containers/OptionsScreen/OptionsScreen'
 import ProfileScreen from 'App/Containers/ProfileScreen/ProfileScreen'
 import VisitScreen from 'App/Containers/VisitScreen/VisitScreen'
+import VisitListScreen from 'App/Containers/VisitListScreen/VisitListScreen'
 import RegisterScreen from 'App/Containers/RegisterScreen/RegisterScreen'
 import SearchScreen from 'App/Containers/SearchScreen/SearchScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
@@ -32,10 +33,8 @@ const defaultNavigationOptions = {
 
 const StackNavigator = createStackNavigator(
   {
-    // The main application screen is our "ExampleScreen". Feel free to replace it with your
-    // own screen and remove the example.
     MainScreen: {
-      screen: VisitScreen,
+      screen: LoginScreen,
       navigationOptions:{
         ...defaultNavigationOptions,
         header: null
@@ -57,6 +56,13 @@ const StackNavigator = createStackNavigator(
     },
     VisitScreen: {
       screen: VisitScreen,
+      navigationOptions:{
+        ...defaultNavigationOptions,
+        headerTitle: visitTitle
+      }
+    },
+    VisitListScreen: {
+      screen: VisitListScreen,
       navigationOptions:{
         ...defaultNavigationOptions,
         headerTitle: visitTitle

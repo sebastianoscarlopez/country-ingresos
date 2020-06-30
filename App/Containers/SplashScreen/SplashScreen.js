@@ -1,17 +1,25 @@
-import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import React, { useState, useContext, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import NavigatorActions from 'App/Stores/Navigator/Actions'
+import { Image, SafeAreaView, View } from 'react-native'
+import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import styles from './SplashScreenStyle'
-import { Helpers } from 'App/Theme'
+import { Images } from 'App/Theme'
 
-export default class SplashScreen extends React.Component {
-  render() {
-    return (
-      <SafeAreaView style={[Helpers.fillRowCenter, styles.container]}>
-        <SafeAreaView style={[Helpers.center, styles.logo]}>
-          {/* You will probably want to insert your logo here */}
-          <Text>LOGO</Text>
-        </SafeAreaView>
-      </SafeAreaView>
-    )
-  }
+const SplashScreen = () => {
+  /*
+  useMemo(() => {
+    if(dispatch !== undefined){
+    dispatch(StartupActions.startup())
+    }
+  }, [])
+  */
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={{ flex: 1, paddingTop: 50 }}>
+        <Image source={Images.logo} resizeMode="contain" style={styles.logo} />
+      </View>
+    </SafeAreaView>
+  )
 }
+export default SplashScreen
