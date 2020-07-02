@@ -1,12 +1,12 @@
 import React from 'react'
-import {TouchableOpacity, Text, SafeAreaView } from 'react-native'
+import {TouchableOpacity, Text, View } from 'react-native'
 import Label from '../Label/Label'
 import styles from './ButtonStyle.js'
 
 export default (props) => {
     const { onPress, style, textStyle, children, label } = props
     return (
-        <SafeAreaView
+        <View
             width={150}
             height={60}
         >
@@ -16,6 +16,6 @@ export default (props) => {
             <Text style={{...styles.text, ...textStyle}}>{children}</Text>
         </TouchableOpacity>
             { label && <Label>{label}</Label> }
-        </SafeAreaView>
+        </View>
     )
 }

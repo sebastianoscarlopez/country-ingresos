@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, Text, SafeAreaView, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/User/Actions'
@@ -26,7 +26,7 @@ class ExampleScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView
+      <View
         style={[
           Helpers.fill,
           Helpers.rowMain,
@@ -37,16 +37,16 @@ class ExampleScreen extends React.Component {
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <SafeAreaView>
-            <SafeAreaView style={Style.logoContainer}>
+          <View>
+            <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
-            </SafeAreaView>
+            </View>
             <Text style={Style.text}>To get started, edit App.js</Text>
             <Text style={Style.instructions}>{instructions}</Text>
             {this.props.userErrorMessage ? (
               <Text style={Style.error}>{this.props.userErrorMessage}</Text>
             ) : (
-              <SafeAreaView>
+              <View>
                 <Text style={Style.result}>
                   {"I'm a fake user, my name is "}
                   {this.props.user.name}
@@ -54,16 +54,16 @@ class ExampleScreen extends React.Component {
                 <Text style={Style.result}>
                   {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
                 </Text>
-              </SafeAreaView>
+              </View>
             )}
             <Button
               style={ApplicationStyles.button}
               onPress={() => this._fetchUser()}
               title="Refresh"
             />
-          </SafeAreaView>
+          </View>
         )}
-      </SafeAreaView>
+      </View>
     )
   }
 

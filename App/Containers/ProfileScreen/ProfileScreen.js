@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TextInput, Text, SafeAreaView, View } from 'react-native'
+import { TextInput, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputField, Label, Header, Button } from 'App/Components'
 import styles from '../ContainersStyle'
@@ -26,7 +26,7 @@ const ProfileScreen = (props) => {
   const [eMail, setEMail] = useState('')
   const [picture, setPicture] = useState('')
   return (
-    <SafeAreaView>
+    <View>
       <Header icon={Images.profileHeader} text={"Nombre Completo De La Persona"} />
       <View style={{ padding: 20, height: vh(70) }}>
         <View style={{ ...styles.rowContainer }}>
@@ -53,7 +53,7 @@ const ProfileScreen = (props) => {
         <View style={{ width: 50 }} />
         <Button style={{ backgroundColor: Colors.error }}>CANCELAR</Button>
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 export default ProfileScreen

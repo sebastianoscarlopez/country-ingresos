@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TextInput, Text, SafeAreaView, View } from 'react-native'
+import { TextInput, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { Header, InputField, Button } from 'App/Components'
 import { searchLabel } from 'App/Assets/Strings'
@@ -50,7 +50,7 @@ const VisitListScreen = (props) => {
   )
 
   return (
-    <SafeAreaView>
+    <View>
       <Header icon={Images.visitHeader} text={'Visitas'} />
       <View style={{ padding: 20, height: vh(70) }}>
         <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -75,7 +75,7 @@ const VisitListScreen = (props) => {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 export default VisitListScreen

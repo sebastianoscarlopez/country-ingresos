@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TextInput, Text, SafeAreaView, View } from 'react-native'
+import { TextInput, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { Header, InputField } from 'App/Components'
 import { searchLabel } from 'App/Assets/Strings'
@@ -41,7 +41,7 @@ const SearchScreen = (props) => {
   )
 
   return (
-    <SafeAreaView>
+    <View>
       <Header icon={Images.searchHeader} text={'Busqueda de\npropietarios'} />
       <View style={{ padding: 20, height: vh(70) }}>
         <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -64,7 +64,7 @@ const SearchScreen = (props) => {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 export default SearchScreen

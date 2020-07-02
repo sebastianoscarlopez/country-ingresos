@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, Modal, Text, SafeAreaView } from 'react-native'
+import { TouchableOpacity, Modal, Text, View } from 'react-native'
 import Label from '../Label/Label'
 import styles from './ModalStyle.js'
 
@@ -7,7 +7,7 @@ export default (props) => {
   const { children, visible, onRequestClose } = props
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
-      <SafeAreaView
+      <View
         style={{
           flex: 1,
         }}
@@ -21,7 +21,7 @@ export default (props) => {
         >
           {children}
         </TouchableOpacity>
-      </SafeAreaView>
+      </View>
     </Modal>
   )
 }

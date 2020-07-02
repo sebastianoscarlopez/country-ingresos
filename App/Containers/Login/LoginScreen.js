@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
-import { Image, Text, SafeAreaView, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputFieldBig } from 'App/Components'
 import styles from './LoginScreenStyle'
@@ -21,7 +21,7 @@ const LoginScreen = (props) => {
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
   const [password, setPassword] = useState()
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={{ flex: 1, paddingTop: 50 }}>
         <Image source={Images.logo} resizeMode="contain" style={styles.logo} />
         <Text style={{ color: 'white' }}>{(!!status).toString()}</Text>
@@ -42,7 +42,7 @@ const LoginScreen = (props) => {
           </View>
         </View>
       )}
-    </SafeAreaView>
+    </View>
   )
 }
 export default LoginScreen

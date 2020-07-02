@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, View, Text, SafeAreaView } from 'react-native'
+import { Image, View, Text } from 'react-native'
 import { Images, Colors } from 'App/Theme'
 import { vw, vh } from 'App/Helpers/DimensionsHelper'
 import LinearGradient from 'react-native-linear-gradient'

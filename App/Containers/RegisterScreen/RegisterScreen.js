@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
-import { TextInput, Text, Image, SafeAreaView, View } from 'react-native'
+import { TextInput, Text, Image, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputFieldBig, Button } from 'App/Components'
 import {
@@ -23,7 +23,7 @@ const RegisterScreen = (props) => {
   const [eMail, setEMail] = useState('')
   const [allotment, setAllotment] = useState('')
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={{ flex: 1, paddingTop: 40 }}>
         <Image source={Images.logo} resizeMode="contain" style={styles.logo} />
       </View>
@@ -52,7 +52,7 @@ const RegisterScreen = (props) => {
       <View style={styles.sendContainer} >
         <Image source={Images.send} resizeMode="contain" style={styles.send} />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 export default RegisterScreen

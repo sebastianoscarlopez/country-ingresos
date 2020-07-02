@@ -1,7 +1,6 @@
 import { put, select } from 'redux-saga/effects'
 import UserActions from 'App/Stores/User/Actions'
-import NavigationService from 'App/Services/NavigationService'
-import { Image, Text, SafeAreaView, View, AsyncStorage } from 'react-native'
+import { Image, Text, View, AsyncStorage } from 'react-native'
 import 'react-native-get-random-values'
 import { uuid } from 'uuidv4';
 
@@ -18,6 +17,4 @@ export function* startup() {
     idApp = yield select(getIdApp)
   }
   yield put(UserActions.fetchProfile(idApp))
-  // When those operations are finished we redirect to the main screen
-  //NavigationService.navigateAndReset('RegisterScreen')
 }

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { TextInput, Text, TouchableHighlight, SafeAreaView, View } from 'react-native'
+import { TextInput, Text, TouchableHighlight, View } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { Modal, Button, MultilineField, InputField, Label } from 'App/Components'
@@ -54,7 +54,7 @@ const VisitScreen = (props) => {
     setModalDateVisible(true)
   }
   return (
-    <SafeAreaView>
+    <View>
       <Modal onRequestClose={() => setModalDateVisible(false)} visible={modalDateVisible}>
         <View style={{ backgroundColor: Colors.white, margin: 50, marginTop: 200 }}>
           <DateTimePicker
@@ -116,7 +116,7 @@ const VisitScreen = (props) => {
         <View style={{ width: 50 }} />
         <Button style={{ backgroundColor: Colors.error }}>CANCELAR</Button>
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 export default VisitScreen
