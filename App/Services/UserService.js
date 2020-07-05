@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Config } from 'App/Config'
 
-const userApiClient = axios.create({
+const apiFetch = axios.create({
   baseURL: Config.API_URL,
   validateStatus: (status) => status === 200,
   responseType: 'json',
@@ -13,7 +13,7 @@ function login({idApp, password}) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
   params.append('clave', password)
-  const value = userApiClient
+  const value = apiFetch
     .post('/api_login.php', params)
     .then((response) => {
       const {
@@ -37,7 +37,7 @@ function register({idApp, document, eMail, allotment}) {
   params.append('dni', document)
   params.append('email', eMail)
   params.append('lote', allotment)
-  const value = userApiClient
+  const value = apiFetch
     .post('/api_primeringreso.php', params)
     .then((response) => {
       const {
@@ -58,7 +58,7 @@ function register({idApp, document, eMail, allotment}) {
 function fetchUser(idApp) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
-  const value = userApiClient
+  const value = apiFetch
     .post('/api_verifica_iddisp.php', params)
     .then((response) => {
       const {

@@ -4,4 +4,5 @@
 export const INITIAL_STATE = {
   message: '',
   isError: false,
+  ownersData: []
 }

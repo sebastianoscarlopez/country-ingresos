@@ -1,9 +1,15 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, debounce } from 'redux-saga/effects'
+
+import { GlobalTypes } from 'App/Stores/Global/Actions'
+import { searchOwners } from './GlobalSaga'
+
 import { UserTypes } from 'App/Stores/User/Actions'
-import { StartupTypes } from 'App/Stores/Startup/Actions'
-import { NavigatorTypes } from 'App/Stores/Navigator/Actions'
 import { fetchStatus, register, login, fetchUser } from './UserSaga'
+
+import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { startup } from './StartupSaga'
+
+import { NavigatorTypes } from 'App/Stores/Navigator/Actions'
 import { navigate } from './NavigatorSaga'
 
 export default function* root() {
@@ -12,6 +18,7 @@ export default function* root() {
     takeLatest(UserTypes.FETCH_STATUS, fetchStatus),
     takeLatest(UserTypes.REGISTER, register),
     takeLatest(UserTypes.LOGIN, login),
+    debounce(500, GlobalTypes.SEARCH_OWNERS, searchOwners),
     takeLatest(NavigatorTypes.NAVIGATE, navigate),
     takeLatest(UserTypes.FETCH_USER, fetchUser),
   ])

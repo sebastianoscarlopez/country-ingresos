@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextInput, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { Header, InputField } from 'App/Components'
 import { searchLabel } from 'App/Assets/Strings'
 import { Colors, Images } from 'App/Theme'
 import styles from './SearchScreenStyle'
 import { vh } from 'App/Helpers/DimensionsHelper'
+import GlobalActions from 'App/Stores/Global/Actions'
 
 import mock from 'App/Assets/peopleMock.js'
 import { FlatList } from 'react-native-gesture-handler'
 
 const SearchScreen = (props) => {
   const [searchFilter, setSearchFilter] = useState('')
+  const ownersData = useSelector(({global: { ownersData }}) => ownersData)
   const [data, setData] = useState(mock)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(GlobalActions.searchOwners(searchFilter))
+  }, [searchFilter, dispatch])
   const renderHeader = () => (
     <View style={styles.row}>
       <View style={styles.column_1}>
@@ -52,10 +59,11 @@ const SearchScreen = (props) => {
               onChangeText={setSearchFilter}
               rounded
             />
+            <Text>{searchFilter}</Text>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <FlatList
-              data={data}
+              data={ownersData}
               ListHeaderComponent={renderHeader}
               stickyHeaderIndices={[0]}
               renderItem={renderItem}

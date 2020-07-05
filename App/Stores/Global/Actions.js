@@ -1,7 +1,9 @@
 import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
-  setMessage: ['message', 'isError']
+  setMessage: ['message', 'isError'],
+  searchOwners: ['text'],
+  setOwnersData: ['ownersData']
 })
 
 export const GlobalTypes = Types

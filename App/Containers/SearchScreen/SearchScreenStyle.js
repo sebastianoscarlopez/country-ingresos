@@ -15,18 +15,18 @@ export default StyleSheet.create({
     backgroundColor: Colors.white
   },
   column_1: {
-    width: '40%',
+    width: '50%',
     ...cellHeader,
     alignItems: 'flex-start'
   },
   column_2: {
-    width: '30%',
+    width: '35%',
     ...cellHeader,
     borderLeftWidth: 0,
     borderRightWidth: 0,
   },
   column_3: {
-    width: '30%',
+    width: '15%',
     ...cellHeader
   },
   headerText:{

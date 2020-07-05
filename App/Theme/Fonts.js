@@ -5,9 +5,9 @@ const size = {
   h2: 34,
   h3: 24,
   input: 22,
-  regular: 17,
-  medium: 14,
-  small: 12,
+  regular: 14,
+  medium: 12,
+  small: 10
 }
 
 export default StyleSheet.create({

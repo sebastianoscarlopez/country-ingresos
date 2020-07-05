@@ -22,76 +22,88 @@ import { visitTitle, searchTitle, profileTitle, registerTitle } from 'App/Assets
 const defaultNavigationOptions = {
   headerForceInset: {
     top: 'never',
-    bottom: 'never'
+    bottom: 'never',
   },
   headerStyle: {
     height: 30,
   },
   headerTitleStyle: {
     fontSize: 18,
-  }
+  },
 }
 
 const StackNavigator = createStackNavigator(
   {
     MainScreen: {
-      screen: StartupScreen,
-      navigationOptions:{
+      screen: SearchScreen,
+      navigationOptions: {
         ...defaultNavigationOptions,
-        header: null
-      }
+        header: null,
+      },
     },
-    StartupScreen: StartupScreen,
-    LoginScreen: LoginScreen,
     OptionsScreen: {
       screen: OptionsScreen,
-      navigationOptions:{
-        header: null
-      }
+      navigationOptions: {
+        header: null,
+      },
     },
     ProfileScreen: {
       screen: ProfileScreen,
-      navigationOptions:{
+      navigationOptions: {
         ...defaultNavigationOptions,
-        headerTitle: profileTitle
-      }
+        headerTitle: profileTitle,
+      },
     },
     VisitScreen: {
       screen: VisitScreen,
-      navigationOptions:{
+      navigationOptions: {
         ...defaultNavigationOptions,
-        headerTitle: visitTitle
-      }
+        headerTitle: visitTitle,
+      },
     },
     VisitListScreen: {
       screen: VisitListScreen,
-      navigationOptions:{
+      navigationOptions: {
         ...defaultNavigationOptions,
-        headerTitle: visitTitle
-      }
+        headerTitle: visitTitle,
+      },
     },
     SearchScreen: {
       screen: SearchScreen,
-      navigationOptions:{
+      navigationOptions: {
         ...defaultNavigationOptions,
-        headerTitle: searchTitle
-      }
+        headerTitle: searchTitle,
+      },
+    },
+    StartupScreen: {
+      screen: StartupScreen,
+      navigationOptions: {
+        ...defaultNavigationOptions,
+        header: null,
+      },
+    },
+    LoginScreen: {
+      screen: LoginScreen,
+      navigationOptions: {
+        ...defaultNavigationOptions,
+        header: null,
+      },
     },
     RegisterScreen: {
       screen: RegisterScreen,
-      navigationOptions:{
+      navigationOptions: {
         ...defaultNavigationOptions,
-        header: null
-      }
+        header: null,
+      },
     },
     // Create the application routes here (the key is the route name, the value is the target screen)
     // See https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs
     SplashScreen: {
       screen: SplashScreen,
-      navigationOptions:{
-        header: null
-      }
-    }
+      navigationOptions: {
+        header: null,
+      },
+    },
   },
   {
     // By default the application will show the splash screen

@@ -9,7 +9,14 @@ export const setMessage = (state, { message, isError }) => {
     isError,
   }
 }
+export const setOwnersData = (state, { ownersData }) => {
+  return {
+    ...state,
+    ownersData
+  }
+}
 
 export const reducer = createReducer(INITIAL_STATE, {
   [GlobalTypes.SET_MESSAGE]: setMessage,
+  [GlobalTypes.SET_OWNERS_DATA]: setOwnersData,
 })
