@@ -1,23 +1,43 @@
 import { put, call } from 'redux-saga/effects'
 import NavigationService from 'App/Services/NavigationService'
 import UserActions from 'App/Stores/User/Actions'
+import GlobalActions from 'App/Stores/Global/Actions'
 import { userService } from 'App/Services/UserService'
-import { msgWaitingEmailConfirmation } from 'App/Assets/Strings'
+import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword } from 'App/Assets/Strings'
 
-export function* fetchProfile({ idApp }) {
+export function* login(idApp, password) {
+  console.warn(idApp, password)
+  const { result } = yield call(userService.login, idApp, password)
+  const actions = {
+    OK: () => NavigationService.navigateAndReset('OptionsScreen'),
+    INVALID: () => put(GlobalActions.setMessage(msgInvalidPassword, true)),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
 
-  console.warn('idApp:', idApp)
+  yield actions[result]()
+}
+
+export function* register(idApp, document, eMail, allotment) {
+  const { result } = yield call(userService.register, idApp, document, eMail, allotment)
+  const actions = {
+    OK: () => NavigationService.navigateAndReset('LoginScreen'),
+    INVALID: () => put(GlobalActions.setMessage(msgInvalidUser, true)),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
+
+  yield actions[result]()
+}
+export function* fetchStatus({ idApp }) {
   const { result } = yield call(userService.fetchUser, idApp)
 
   const actions = {
     REGISTER: () => NavigationService.navigateAndReset('RegisterScreen'),
     LOGIN: () => NavigationService.navigateAndReset('LoginScreen'),
-    CONFIRM: () => console.error('TODO: Show message msgWaitingEmailConfirmation to user'),
-    ERROR: () => console.error('TODO: Show message msgGenericError to user'),
+    CONFIRM: () => put(GlobalActions.setMessage(msgWaitingEmailConfirmation, true)),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
   }
 
-  console.warn('result:', result)
-  actions[result]()
+  yield actions[result]()
 }
 /**
  * A saga can contain multiple functions.

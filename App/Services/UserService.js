@@ -9,12 +9,34 @@ const userApiClient = axios.create({
   timeout: 3000,
 })
 
-function fetchRegister(idApp, dni, email, lote) {
+function login({idApp, password}) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
-  params.append('dni', dni)
-  params.append('email', email)
-  params.append('lote', lote)
+  params.append('clave', password)
+  const value = userApiClient
+    .post('/api_login.php', params)
+    .then((response) => {
+      const {
+        data: { error, data },
+      } = response
+      if (error !== 0) {
+        throw response
+      }
+
+      return { result: data === 1 ? 'INVALID' : 'OK' }
+    })
+    .catch(function(error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
+function register({idApp, document, eMail, allotment}) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('dni', document)
+  params.append('email', eMail)
+  params.append('lote', allotment)
   const value = userApiClient
     .post('/api_primeringreso.php', params)
     .then((response) => {
@@ -25,7 +47,7 @@ function fetchRegister(idApp, dni, email, lote) {
         throw response
       }
 
-      return { result: ['REGISTER', 'LOGIN', 'CONFIRM'][data] }
+      return { result: data === 1 ? 'INVALID' : 'OK' }
     })
     .catch(function(error) {
       return { result: 'ERROR' }
@@ -56,4 +78,6 @@ function fetchUser(idApp) {
 
 export const userService = {
   fetchUser,
+  register,
+  login
 }

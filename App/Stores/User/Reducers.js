@@ -32,9 +32,7 @@ const setIdApp = (state, { idApp }) => ({
   ...state,
   idApp
 })
-/**
- * @see https://github.com/infinitered/reduxsauce#createreducer
- */
+
 export const reducer = createReducer(INITIAL_STATE, {
   [UserTypes.SET_ID_APP]: setIdApp,
   [UserTypes.FETCH_USER_LOADING]: fetchUserLoading,

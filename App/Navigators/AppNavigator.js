@@ -9,6 +9,7 @@ import VisitListScreen from 'App/Containers/VisitListScreen/VisitListScreen'
 import RegisterScreen from 'App/Containers/RegisterScreen/RegisterScreen'
 import SearchScreen from 'App/Containers/SearchScreen/SearchScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
+import StartupScreen from 'App/Containers/StartupScreen/StartupScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
 import Title from 'App/Components/Title/Title'
 import { visitTitle, searchTitle, profileTitle, registerTitle } from 'App/Assets/Strings'
@@ -34,12 +35,13 @@ const defaultNavigationOptions = {
 const StackNavigator = createStackNavigator(
   {
     MainScreen: {
-      screen: LoginScreen,
+      screen: StartupScreen,
       navigationOptions:{
         ...defaultNavigationOptions,
         header: null
       }
     },
+    StartupScreen: StartupScreen,
     LoginScreen: LoginScreen,
     OptionsScreen: {
       screen: OptionsScreen,

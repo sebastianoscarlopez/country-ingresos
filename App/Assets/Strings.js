@@ -24,5 +24,7 @@ export const registerLegend_2 = `Complete los siguientes datos
 para obtener su clave.`
 export const registerLegend_3 = 'Esta será enviada a su E-Mail'
 
-export const msgWaitingEmailConfirmation = 'Por favor ingrese a su corre y E-Mail y para confirmar su registración'
+export const msgWaitingEmailConfirmation = 'Por favor ingrese a su correo para confirmar la registración'
 export const msgGenericError = 'Algo salió mal, vuelva a intentar en unos minutos'
+export const msgInvalidUser = 'Los datos ingresados son invalidos'
+export const msgInvalidPassword = 'La clave es incorrecta'

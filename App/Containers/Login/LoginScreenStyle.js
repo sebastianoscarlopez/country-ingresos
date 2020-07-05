@@ -13,10 +13,14 @@ export default StyleSheet.create({
     width: vh(40),
     height: vh(40),
   },
-  login: {
+  touchLogin: {
     left: (vw(100) - vh(15)) / 2,
     width: vh(15),
     height: vh(15),
+  },
+  login: {
+    width: '100%',
+    height: '100%',
   },
   legend: {
     ...Fonts.normal,

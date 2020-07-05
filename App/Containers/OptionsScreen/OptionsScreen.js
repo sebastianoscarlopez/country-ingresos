@@ -19,7 +19,7 @@ const OptionsScreen = (props) => {
           icon={Images.visit}
           title="Visitas"
           description="Podra crear, modificar y borrar datos."
-          onPress={() => navigate('SearchScreen')}
+          onPress={() => navigate('VisitListScreen')}
         />
       </View>
       <View style={Helpers.fillRowCenter}>
@@ -27,7 +27,7 @@ const OptionsScreen = (props) => {
           icon={Images.search}
           title="Lotes - Listas"
           description="Busqueda de lotes y listas"
-          onPress={() => navigate('RegisterScreen')}
+          onPress={() => navigate('SearchScreen')}
         />
       </View>
       <View style={Helpers.fillRowCenter}>
@@ -43,7 +43,7 @@ const OptionsScreen = (props) => {
           icon={Images.password}
           title="Cambiar Clave"
           description=""
-          onPress={() => navigate('VisitScreen')}
+          onPress={() => navigate('RegisterScreen')}
         />
       </View>
     </ContainerScreen>

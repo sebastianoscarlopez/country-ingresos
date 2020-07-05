@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
 import { TextInput, Text, Image, View } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
@@ -15,13 +15,17 @@ import {
 } from 'App/Assets/Strings'
 import styles from './RegisterScreenStyle'
 import { Images, Colors } from 'App/Theme'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import UserActions from 'App/Stores/User/Actions'
 
 const RegisterScreen = (props) => {
   const dispatch = useDispatch()
+  const idApp = useSelector(({user: { idApp }}) => idApp)
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
-  const [document, setDocument] = useState('')
-  const [eMail, setEMail] = useState('')
-  const [allotment, setAllotment] = useState('')
+  const [document, setDocument] = useState('21503084')
+  const [eMail, setEMail] = useState('mariacarolinao@hotmail.com')
+  const [allotment, setAllotment] = useState('26')
+  const handlerEnviar = () => dispatch(UserActions.register(idApp, document, eMail, allotment))
   return (
     <View style={styles.container}>
       <View style={{ flex: 1, paddingTop: 40 }}>
@@ -50,7 +54,9 @@ const RegisterScreen = (props) => {
         </View>
       </View>
       <View style={styles.sendContainer} >
-        <Image source={Images.send} resizeMode="contain" style={styles.send} />
+        <TouchableOpacity onPress={handlerEnviar} style={styles.touchSend} >
+          <Image source={Images.send} resizeMode="contain" style={styles.send} />
+        </TouchableOpacity>
       </View>
     </View>
   )

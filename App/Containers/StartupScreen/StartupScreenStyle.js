@@ -9,24 +9,14 @@ export default StyleSheet.create({
     paddingTop: 40,
   },
   logo: {
-    left: (vw(100) - vh(30)) / 2,
-    width: vh(30),
-    height: vh(30),
+    left: (vw(100) - vh(40)) / 2,
+    width: vh(40),
+    height: vh(40),
   },
-  touchSend: {
-    left: (vw(100) - vh(20)) / 2,
-    top: 0,
-    width: vh(20),
-    height: vh(10),
-  },
-  send: {
-    width: '100%',
-    height: '100%',
-  },
-  legend: {
-    ...Fonts.normal,
-    textAlign: 'center',
-    color: Colors.white,
+  login: {
+    left: (vw(100) - vh(15)) / 2,
+    width: vh(15),
+    height: vh(15),
   },
   inputContainer: {
     flex: 1,
@@ -34,15 +24,9 @@ export default StyleSheet.create({
     paddingLeft: 40,
     paddingRight: 40,
   },
-  input: {
-    ...Fonts.h1,
-    textAlignVertical: 'center',
-    alignItems: 'stretch',
-    flex: 1,
-    backgroundColor: Colors.black,
-  },
-  sendContainer: {
+  loginContainer: {
     flex: 0.4,
     justifyContent: 'flex-end',
+    paddingBottom: 40,
   },
 })

@@ -21,8 +21,10 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions({
   // Fetch user informations
   setIdApp: ['idApp'],
-  fetchProfile: ['idApp'],
-  fetchProfileSuccess: ['status'],
+  fetchStatus: ['idApp'],
+  register: ['idApp', 'document', 'eMail', 'allotment'],
+  login: ['idApp', 'password'],
+  setIsRegister: null,
   fetchUser: null,
   // The operation has started and is loading
   fetchUserLoading: null,

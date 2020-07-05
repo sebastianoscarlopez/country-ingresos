@@ -16,5 +16,5 @@ export function* startup() {
     yield put(UserActions.setIdApp(uuid()))
     idApp = yield select(getIdApp)
   }
-  yield put(UserActions.fetchProfile(idApp))
+  yield put(UserActions.fetchStatus(idApp))
 }
