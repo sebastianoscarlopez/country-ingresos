@@ -24,6 +24,9 @@ const { Types, Creators } = createActions({
   fetchStatus: ['idApp'],
   register: ['idApp', 'document', 'eMail', 'allotment'],
   login: ['idApp', 'password'],
+  setIsOwner: ['isOwner'],
+  setVisitsData: ['visitsData'],
+  getVisits: ['idApp'],
   setIsRegister: null,
   fetchUser: null,
   // The operation has started and is loading

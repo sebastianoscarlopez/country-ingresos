@@ -15,7 +15,7 @@ export function* searchOwners({text}) {
   let idApp = yield select(getIdApp)
   const { result, ownersData } = yield call(globalService.searchOwners, idApp, text)
   const actions = {
-    OK: () => put(GlobalActions.setOwnersData(ownersData)),
+    OK: () => put(GlobalActions.setOwnersData(ownersData.map((owner, index) => ({...owner, index})))),
     ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
   }
 

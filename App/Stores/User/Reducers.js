@@ -33,8 +33,22 @@ const setIdApp = (state, { idApp }) => ({
   idApp
 })
 
+const setIsOwner = (state, { isOwner }) => ({
+  ...state,
+  isOwner
+})
+
+const setVisitsData = (state, { visitsData }) => {
+  return {
+    ...state,
+    visitsData
+  }
+}
+
 export const reducer = createReducer(INITIAL_STATE, {
   [UserTypes.SET_ID_APP]: setIdApp,
+  [UserTypes.SET_IS_OWNER]: setIsOwner,
+  [UserTypes.SET_VISITS_DATA]: setVisitsData,
   [UserTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [UserTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
   [UserTypes.FETCH_USER_FAILURE]: fetchUserFailure,

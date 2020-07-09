@@ -1,7 +1,6 @@
 import React from 'react'
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
-import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import OptionsScreen from 'App/Containers/OptionsScreen/OptionsScreen'
 import ProfileScreen from 'App/Containers/ProfileScreen/ProfileScreen'
 import VisitScreen from 'App/Containers/VisitScreen/VisitScreen'
@@ -35,7 +34,14 @@ const defaultNavigationOptions = {
 const StackNavigator = createStackNavigator(
   {
     MainScreen: {
-      screen: SearchScreen,
+      screen: StartupScreen,
+      navigationOptions: {
+        ...defaultNavigationOptions,
+        header: null,
+      },
+    },
+    StartupScreen: {
+      screen: StartupScreen,
       navigationOptions: {
         ...defaultNavigationOptions,
         header: null,
@@ -73,13 +79,6 @@ const StackNavigator = createStackNavigator(
       navigationOptions: {
         ...defaultNavigationOptions,
         headerTitle: searchTitle,
-      },
-    },
-    StartupScreen: {
-      screen: StartupScreen,
-      navigationOptions: {
-        ...defaultNavigationOptions,
-        header: null,
       },
     },
     LoginScreen: {

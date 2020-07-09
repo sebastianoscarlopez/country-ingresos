@@ -8,14 +8,11 @@ import { Colors, Images } from 'App/Theme'
 import styles from './SearchScreenStyle'
 import { vh } from 'App/Helpers/DimensionsHelper'
 import GlobalActions from 'App/Stores/Global/Actions'
-
-import mock from 'App/Assets/peopleMock.js'
 import { FlatList } from 'react-native-gesture-handler'
 
 const SearchScreen = (props) => {
   const [searchFilter, setSearchFilter] = useState('')
   const ownersData = useSelector(({global: { ownersData }}) => ownersData)
-  const [data, setData] = useState(mock)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GlobalActions.searchOwners(searchFilter))
@@ -34,7 +31,7 @@ const SearchScreen = (props) => {
     </View>
   )
   const renderItem = ({ item, index }) => (
-    <View key={item} style={{...styles.row, backgroundColor: index%2===1 ? Colors.white : Colors.resaltedRow}}>
+    <View key={item} style={{...styles.row, backgroundColor: index%2===0 ? Colors.white : Colors.resaltedRow}}>
       <View style={styles.column_1}>
         <Text style={styles.cellText}>{item.name}</Text>
       </View>
@@ -42,7 +39,7 @@ const SearchScreen = (props) => {
         <Text style={styles.cellText}>{item.phone}</Text>
       </View>
       <View style={styles.column_3}>
-        <Text style={styles.cellText}>{item.allotment}</Text>
+        <Text style={styles.cellText}>{item.allotment.toString()}</Text>
       </View>
     </View>
   )
@@ -67,7 +64,7 @@ const SearchScreen = (props) => {
               ListHeaderComponent={renderHeader}
               stickyHeaderIndices={[0]}
               renderItem={renderItem}
-              keyExtractor={(item) => item.allotment}
+              keyExtractor={(item) => item.index.toString()}
             />
           </View>
         </View>

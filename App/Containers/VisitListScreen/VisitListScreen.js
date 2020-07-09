@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextInput, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { Header, InputField, Button } from 'App/Components'
 import { searchLabel } from 'App/Assets/Strings'
 import { Colors, Images } from 'App/Theme'
 import styles from './VisitListScreenStyle'
 import { vh } from 'App/Helpers/DimensionsHelper'
+import UserActions from 'App/Stores/User/Actions'
 
-import mock from 'App/Assets/peopleMock.js'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler'
 
 const VisitListScreen = (props) => {
   const [searchFilter, setSearchFilter] = useState('')
   const [selectedItem, setSelectedItem] = useState(-1)
-  const [data, setData] = useState(mock)
+  const visitsData = useSelector(({user: { visitsData }}) => visitsData)
+  const idApp = useSelector(({user: { idApp }}) => idApp)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(UserActions.getVisits(idApp))
+  }, [dispatch])
   const renderHeader = () => (
     <View style={styles.row}>
       <View style={styles.column_1}>
@@ -66,11 +72,11 @@ const VisitListScreen = (props) => {
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <FlatList
-              data={data}
+              data={visitsData}
               ListHeaderComponent={renderHeader}
               stickyHeaderIndices={[0]}
               renderItem={renderItem}
-              keyExtractor={(item) => item.allotment}
+              keyExtractor={(item) => item.index.toString()}
             />
           </View>
         </View>

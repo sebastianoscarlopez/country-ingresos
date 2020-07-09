@@ -5,11 +5,23 @@ import GlobalActions from 'App/Stores/Global/Actions'
 import { userService } from 'App/Services/UserService'
 import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword } from 'App/Assets/Strings'
 
-export function* login(idApp, password) {
-  console.warn(idApp, password)
-  const { result } = yield call(userService.login, idApp, password)
+export function* getVisits({idApp}) {
+  const { result, visitsData } = yield call(userService.getVisits, idApp)
   const actions = {
-    OK: () => NavigationService.navigateAndReset('OptionsScreen'),
+    OK: () => put(UserActions.setVisitsData(visitsData.map((visit, index) => ({...visit, index})))),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
+
+  yield actions[result]()
+}
+
+export function* login(idApp, password) {
+  const { result, tipouser } = yield call(userService.login, idApp, password)
+  const actions = {
+    OK: () => {
+      put(UserActions.setIsOwner(tipouser))
+      NavigationService.navigateAndReset('OptionsScreen')
+    },
     INVALID: () => put(GlobalActions.setMessage(msgInvalidPassword, true)),
     ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
   }

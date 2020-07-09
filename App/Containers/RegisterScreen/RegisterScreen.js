@@ -22,9 +22,9 @@ const RegisterScreen = (props) => {
   const dispatch = useDispatch()
   const idApp = useSelector(({user: { idApp }}) => idApp)
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
-  const [document, setDocument] = useState('21503084')
-  const [eMail, setEMail] = useState('mariacarolinao@hotmail.com')
-  const [allotment, setAllotment] = useState('26')
+  const [document, setDocument] = useState('')
+  const [eMail, setEMail] = useState('')
+  const [allotment, setAllotment] = useState('')
   const handlerEnviar = () => dispatch(UserActions.register(idApp, document, eMail, allotment))
   return (
     <View style={styles.container}>
