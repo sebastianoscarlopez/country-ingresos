@@ -9,7 +9,7 @@ const apiFetch = axios.create({
   timeout: 3000,
 })
 
-function login({idApp, password}) {
+function login({ idApp, password }) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
   params.append('clave', password)
@@ -23,15 +23,15 @@ function login({idApp, password}) {
         throw response
       }
 
-      return { result: data === 1 ? 'INVALID' : 'OK', tipouser }
+      return { result: data === 1 ? 'INVALID' : 'OK', isOwner: tipouser === 1 }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       return { result: 'ERROR' }
     })
   return value
 }
 
-function register({idApp, document, eMail, allotment}) {
+function register({ idApp, document, eMail, allotment }) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
   params.append('dni', document)
@@ -49,7 +49,7 @@ function register({idApp, document, eMail, allotment}) {
 
       return { result: data === 1 ? 'INVALID' : 'OK' }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       return { result: 'ERROR' }
     })
   return value
@@ -70,7 +70,7 @@ function fetchUser(idApp) {
 
       return { result: ['REGISTER', 'LOGIN', 'CONFIRM'][data] }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       return { result: 'ERROR' }
     })
   return value
@@ -82,7 +82,6 @@ function getVisits(idApp) {
   const value = apiFetch
     .post('/api_lista_visitas.php', params)
     .then((response) => {
-      console.warn(response)
       const {
         data: { error, data },
       } = response
@@ -97,7 +96,58 @@ function getVisits(idApp) {
       }))
       return { result: data instanceof Array ? 'OK' : 'ERROR', visitsData }
     })
-    .catch(function(error) {
+    .catch(function (error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
+function addVisit({ idApp, isOwner, name, document, checkInDateText, checkInTimeText, autorization, plate, observation }) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('duenio', isOwner ? 1 : 0)
+  params.append('nombre', name)
+  params.append('dni', document)
+  params.append('fechaingreso', checkInDateText.split('/').reverse().join(''))
+  params.append('horaingreso', checkInTimeText)
+  params.append('autorizacion', autorization ? 1: 0)
+  params.append('patente', plate)
+  params.append('obs', observation.length === 0 ? ' ' : observation)
+  console.warn(params)
+  const value = apiFetch
+    .post('/api_frm_visitas.php', params)
+    .then((response) => {
+      const {
+        data: { error, data, msg },
+      } = response
+      if (error !== 0) {
+        throw response
+      }
+      return { result:  ['OK', 'MESSAGE', 'MESSAGE'][data], message: msg }
+    })
+    .catch(function (error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
+function removeVisit(idApp, id) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('idregistro', id)
+  const value = apiFetch
+    .post('/api_visitas_delete.php', params)
+    .then((response) => {
+      const {
+        data: { error, data },
+      } = response
+      if (error !== 0 || data != 0) {
+        throw response
+      }
+
+      return { result: 'OK' }
+    })
+    .catch(function (error) {
       return { result: 'ERROR' }
     })
   return value
@@ -107,5 +157,7 @@ export const userService = {
   fetchUser,
   register,
   login,
-  getVisits
+  getVisits,
+  addVisit,
+  removeVisit
 }

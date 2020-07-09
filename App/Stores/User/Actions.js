@@ -27,14 +27,8 @@ const { Types, Creators } = createActions({
   setIsOwner: ['isOwner'],
   setVisitsData: ['visitsData'],
   getVisits: ['idApp'],
-  setIsRegister: null,
-  fetchUser: null,
-  // The operation has started and is loading
-  fetchUserLoading: null,
-  // User informations were successfully fetched
-  fetchUserSuccess: ['user'],
-  // An error occurred
-  fetchUserFailure: ['errorMessage'],
+  addVisit: ['data'],
+  removeVisit: ['idApp', 'id']
 })
 
 export const UserTypes = Types
