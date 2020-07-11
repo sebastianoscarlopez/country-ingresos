@@ -3,7 +3,21 @@ import NavigationService from 'App/Services/NavigationService'
 import UserActions from 'App/Stores/User/Actions'
 import GlobalActions from 'App/Stores/Global/Actions'
 import { userService } from 'App/Services/UserService'
-import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword } from 'App/Assets/Strings'
+import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword, msgPasswordReset } from 'App/Assets/Strings'
+
+export function* passwordReset(idApp, password, newPassword) {
+  const { result } = yield call(userService.passwordReset, idApp, password, newPassword)
+  const actions = {
+    OK: () => all([
+      NavigationService.navigateAndReset('OptionsScreen'),
+      put(GlobalActions.setMessage(msgPasswordReset, false))
+    ]),
+    INVALID: () => put(GlobalActions.setMessage(msgInvalidPassword, true)),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
+
+  yield actions[result]()
+}
 
 export function* removeVisit({ idApp, id }) {
   const { result } = yield call(userService.removeVisit, idApp, id)

@@ -28,3 +28,4 @@ export const msgWaitingEmailConfirmation = 'Por favor ingrese a su correo para c
 export const msgGenericError = 'Algo salió mal, vuelva a intentar en unos minutos'
 export const msgInvalidUser = 'Los datos ingresados son invalidos'
 export const msgInvalidPassword = 'La clave es incorrecta'
+export const msgPasswordReset = 'La clave fue cambiada'

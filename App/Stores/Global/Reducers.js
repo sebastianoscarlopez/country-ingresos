@@ -15,8 +15,15 @@ export const setOwnersData = (state, { ownersData }) => {
     ownersData
   }
 }
+export const setIsKeyboardVisible = (state, { isKeyboardVisible }) => {
+  return {
+    ...state,
+    isKeyboardVisible
+  }
+}
 
 export const reducer = createReducer(INITIAL_STATE, {
   [GlobalTypes.SET_MESSAGE]: setMessage,
   [GlobalTypes.SET_OWNERS_DATA]: setOwnersData,
+  [GlobalTypes.SET_IS_KEYBOARD_VISIBLE]: setIsKeyboardVisible
 })

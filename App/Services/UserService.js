@@ -153,11 +153,35 @@ function removeVisit(idApp, id) {
   return value
 }
 
+function passwordReset({ idApp, password, newPassword }) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('claveanterior', password)
+  params.append('clavenueva', newPassword)
+  const value = apiFetch
+    .post('/api_frm_cambia_clave.php', params)
+    .then((response) => {
+      const {
+        data: { error, data, tipouser },
+      } = response
+      if (error !== 0) {
+        throw response
+      }
+
+      return { result: data === 1 ? 'INVALID' : 'OK' }
+    })
+    .catch(function (error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
 export const userService = {
   fetchUser,
   register,
   login,
   getVisits,
   addVisit,
-  removeVisit
+  removeVisit,
+  passwordReset
 }

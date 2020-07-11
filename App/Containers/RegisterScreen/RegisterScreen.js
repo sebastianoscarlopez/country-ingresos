@@ -20,43 +20,47 @@ import UserActions from 'App/Stores/User/Actions'
 
 const RegisterScreen = (props) => {
   const dispatch = useDispatch()
-  const idApp = useSelector(({user: { idApp }}) => idApp)
+  const idApp = useSelector(({ user: { idApp } }) => idApp)
+  const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
   const [document, setDocument] = useState('')
   const [eMail, setEMail] = useState('')
   const [allotment, setAllotment] = useState('')
   const handlerEnviar = () => dispatch(UserActions.register(idApp, document, eMail, allotment))
+
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, paddingTop: 40 }}>
+      <View style={{ flex: isKeyboardVisible ? 0.01 : 1, paddingTop: 40 }}>
         <Image source={Images.logo} resizeMode="contain" style={styles.logo} />
       </View>
-      <View style={{ flex: 0.3 }}>
+      <View style={{ flex: isKeyboardVisible ? 0.1 : 0.3 }}>
         <Text style={styles.legend}>{registerLegend_1}</Text>
         <Text style={{ ...styles.legend, color: Colors.disabled }}>{registerLegend_2}</Text>
         <Text style={styles.legend}>{registerLegend_3}</Text>
       </View>
-      <View
-        style={{
-          flex: 0.5,
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
-      >
-        <View style={styles.inputContainer}>
+      <View style={{ flex: isKeyboardVisible ? 0.4 : 1 }}>
+        <View
+          style={{
+            flex: 0.6,
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          <View style={styles.inputContainer}>
             <InputFieldBig keyboardType='numeric' maxLength={10} placeholder={documentLabel} style={styles.input} value={document} onChangeText={setDocument} rounded />
+          </View>
+          <View style={styles.inputContainer}>
+            <InputFieldBig placeholder={eMailLabel} value={eMail} onChangeText={setEMail} rounded />
+          </View>
+          <View style={styles.inputContainer}>
+            <InputFieldBig placeholder={allotmentLabel} value={allotment} onChangeText={setAllotment} rounded />
+          </View>
         </View>
-        <View style={styles.inputContainer}>
-          <InputFieldBig placeholder={eMailLabel} value={eMail} onChangeText={setEMail} rounded />
+        <View style={styles.sendContainer} >
+          <TouchableOpacity onPress={handlerEnviar} style={styles.touchSend} >
+            <Image source={Images.send} resizeMode="contain" style={styles.send} />
+          </TouchableOpacity>
         </View>
-        <View style={styles.inputContainer}>
-          <InputFieldBig placeholder={allotmentLabel} value={allotment} onChangeText={setAllotment} rounded />
-        </View>
-      </View>
-      <View style={styles.sendContainer} >
-        <TouchableOpacity onPress={handlerEnviar} style={styles.touchSend} >
-          <Image source={Images.send} resizeMode="contain" style={styles.send} />
-        </TouchableOpacity>
       </View>
     </View>
   )

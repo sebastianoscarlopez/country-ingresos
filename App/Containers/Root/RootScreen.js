@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, Text, Keyboard } from 'react-native'
 import { View } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import GlobalActions from 'App/Stores/Global/Actions'
@@ -13,12 +13,23 @@ const RootScreen = (props) => {
   const [modalVisible, setModalVisible] = useState(true)
   const isError = useSelector(({ global: { isError } }) => isError)
   const message = useSelector(({ global: { message } }) => message)
+
+  const dispatch = useDispatch()
+  const cleanMessage = useCallback(() => dispatch(GlobalActions.setMessage('', false)), [dispatch])
+
   useEffect(() => {
     setModalVisible(message.length > 0)
   }, [message])
 
-  const dispatch = useDispatch()
-  const cleanMessage = useCallback(() => dispatch(GlobalActions.setMessage('', false)), [dispatch])
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => dispatch(GlobalActions.setIsKeyboardVisible(true)))
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => dispatch(GlobalActions.setIsKeyboardVisible(false)))
+
+    return () => {
+      keyboardDidHideListener.remove()
+      keyboardDidShowListener.remove()
+    }
+  }, [dispatch])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -30,7 +41,7 @@ const RootScreen = (props) => {
       />
       <Modal visible={modalVisible}>
         <View style={{ backgroundColor: Colors.white, margin: 50, padding: 20, marginTop: 200 }}>
-          <View style={{ alignItems:'center' }}>
+          <View style={{ alignItems: 'center' }}>
             <Text style={{ ...Fonts.normal, marginBottom: 50, color: isError ? Colors.error : Colors.success }}>{message}</Text>
             <Button style={{ backgroundColor: isError ? Colors.error : Colors.success }} onPress={cleanMessage}>
               ACEPTAR

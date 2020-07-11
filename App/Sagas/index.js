@@ -4,7 +4,7 @@ import { GlobalTypes } from 'App/Stores/Global/Actions'
 import { searchOwners } from './GlobalSaga'
 
 import { UserTypes } from 'App/Stores/User/Actions'
-import { fetchStatus, register, login, getVisits, addVisit, removeVisit } from './UserSaga'
+import { fetchStatus, register, login, getVisits, addVisit, removeVisit, passwordReset } from './UserSaga'
 
 import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { startup } from './StartupSaga'
@@ -22,6 +22,7 @@ export default function* root() {
     takeLatest(UserTypes.GET_VISITS, getVisits),
     takeLatest(UserTypes.ADD_VISIT, addVisit),
     takeLatest(UserTypes.REMOVE_VISIT, removeVisit),
+    takeLatest(UserTypes.PASSWORD_RESET, passwordReset),
     debounce(500, GlobalTypes.SEARCH_OWNERS, searchOwners),
   ])
 }

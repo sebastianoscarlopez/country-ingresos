@@ -3,7 +3,8 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions({
   setMessage: ['message', 'isError'],
   searchOwners: ['text'],
-  setOwnersData: ['ownersData']
+  setOwnersData: ['ownersData'],
+  setIsKeyboardVisible: ['isKeyboardVisible']
 })
 
 export const GlobalTypes = Types

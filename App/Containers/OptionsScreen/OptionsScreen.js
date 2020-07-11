@@ -43,7 +43,7 @@ const OptionsScreen = (props) => {
           icon={Images.password}
           title="Cambiar Clave"
           description=""
-          onPress={() => navigate('RegisterScreen')}
+          onPress={() => navigate('PasswordReset')}
         />
       </View>
     </ContainerScreen>

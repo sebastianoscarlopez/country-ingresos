@@ -10,6 +10,7 @@ import SearchScreen from 'App/Containers/SearchScreen/SearchScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import StartupScreen from 'App/Containers/StartupScreen/StartupScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
+import PasswordReset from 'App/Containers/PasswordReset/PasswordReset'
 import Title from 'App/Components/Title/Title'
 import { visitTitle, searchTitle, profileTitle, registerTitle } from 'App/Assets/Strings'
 
@@ -90,6 +91,13 @@ const StackNavigator = createStackNavigator(
     },
     RegisterScreen: {
       screen: RegisterScreen,
+      navigationOptions: {
+        ...defaultNavigationOptions,
+        header: null,
+      },
+    },
+    PasswordReset: {
+      screen: PasswordReset,
       navigationOptions: {
         ...defaultNavigationOptions,
         header: null,

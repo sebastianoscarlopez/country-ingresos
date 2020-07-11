@@ -28,7 +28,8 @@ const { Types, Creators } = createActions({
   setVisitsData: ['visitsData'],
   getVisits: ['idApp'],
   addVisit: ['data'],
-  removeVisit: ['idApp', 'id']
+  removeVisit: ['idApp', 'id'],
+  passwordReset: ['idApp', 'password', 'newPassword'],
 })
 
 export const UserTypes = Types
