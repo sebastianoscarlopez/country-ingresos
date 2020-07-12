@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Config } from 'App/Config'
+import { object } from 'prop-types'
 
 const apiFetch = axios.create({
   baseURL: Config.API_URL,
@@ -9,7 +10,7 @@ const apiFetch = axios.create({
   timeout: 3000,
 })
 
-function login({ idApp, password }) {
+function login(idApp, password) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
   params.append('clave', password)
@@ -55,7 +56,7 @@ function register({ idApp, document, eMail, allotment }) {
   return value
 }
 
-function fetchUser(idApp) {
+function fetchStatus(idApp) {
   const params = new URLSearchParams()
   params.append('idapp', idApp)
   const value = apiFetch
@@ -110,10 +111,9 @@ function addVisit({ idApp, isOwner, name, document, checkInDateText, checkInTime
   params.append('dni', document)
   params.append('fechaingreso', checkInDateText.split('/').reverse().join(''))
   params.append('horaingreso', checkInTimeText)
-  params.append('autorizacion', autorization ? 1: 0)
+  params.append('autorizacion', autorization ? 1 : 0)
   params.append('patente', plate)
   params.append('obs', observation.length === 0 ? ' ' : observation)
-  console.warn(params)
   const value = apiFetch
     .post('/api_frm_visitas.php', params)
     .then((response) => {
@@ -123,7 +123,7 @@ function addVisit({ idApp, isOwner, name, document, checkInDateText, checkInTime
       if (error !== 0) {
         throw response
       }
-      return { result:  ['OK', 'MESSAGE', 'MESSAGE'][data], message: msg }
+      return { result: ['OK', 'MESSAGE', 'MESSAGE'][data], message: msg }
     })
     .catch(function (error) {
       return { result: 'ERROR' }
@@ -176,12 +176,70 @@ function passwordReset({ idApp, password, newPassword }) {
   return value
 }
 
+function getProfile(idApp, isOwner) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('tipouser', isOwner ? 1 : 0)
+  const value = apiFetch
+    .post('/api_toma_datos_personales.php', params)
+    .then((response) => {
+      const {
+        data: { error, data: [data] },
+      } = response
+      if (error !== 0) {
+        throw response
+      }
+      return {
+        result: data instanceof Object ? 'OK' : 'ERROR', profile: {
+          name: data.nombre,
+          phone: data.telefono,
+          eMail: data.email,
+          allotment: data.lote,
+          allotmentOthers: data.otroslotes
+        }
+      }
+    })
+    .catch(function (error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
+function updateProfile(idApp, isOwner, name, phone, eMail) {
+  const params = new URLSearchParams()
+  params.append('idapp', idApp)
+  params.append('tipouser', isOwner ? 1 : 0)
+  params.append('nombre', name)
+  params.append('telefono', phone)
+  params.append('email', eMail)
+  const value = apiFetch
+    .post('/api_datos_personales.php', params)
+    .then((response) => {
+      const {
+        data: { error, data },
+      } = response
+      if (error !== 0) {
+        throw response
+      }
+
+      return {
+        result: ['OK', 'ERROR'][data]
+      }
+    })
+    .catch(function (error) {
+      return { result: 'ERROR' }
+    })
+  return value
+}
+
 export const userService = {
-  fetchUser,
+  fetchStatus,
   register,
   login,
   getVisits,
   addVisit,
   removeVisit,
-  passwordReset
+  passwordReset,
+  getProfile,
+  updateProfile
 }

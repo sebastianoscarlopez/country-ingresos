@@ -19,7 +19,6 @@ import { createActions } from 'reduxsauce'
  * @see https://github.com/infinitered/reduxsauce#createactions
  */
 const { Types, Creators } = createActions({
-  // Fetch user informations
   setIdApp: ['idApp'],
   fetchStatus: ['idApp'],
   register: ['idApp', 'document', 'eMail', 'allotment'],
@@ -30,6 +29,9 @@ const { Types, Creators } = createActions({
   addVisit: ['data'],
   removeVisit: ['idApp', 'id'],
   passwordReset: ['idApp', 'password', 'newPassword'],
+  getProfile: ['idApp', 'isOwner'],
+  setProfile: ['profile'],
+  updateProfile: ['idApp', 'isOwner', 'name', 'phone', 'eMail'],
 })
 
 export const UserTypes = Types

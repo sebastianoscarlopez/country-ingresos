@@ -3,8 +3,30 @@ import NavigationService from 'App/Services/NavigationService'
 import UserActions from 'App/Stores/User/Actions'
 import GlobalActions from 'App/Stores/Global/Actions'
 import { userService } from 'App/Services/UserService'
-import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword, msgPasswordReset } from 'App/Assets/Strings'
+import { msgWaitingEmailConfirmation, msgGenericError, msgInvalidUser, msgInvalidPassword, msgPasswordReset, msgProfileUpdated } from 'App/Assets/Strings'
 
+export function* updateProfile({ idApp, isOwner, name, phone, eMail }) {
+  const { result } = yield call(userService.updateProfile, idApp, isOwner, name, phone, eMail)
+
+  const actions = {
+    OK: () => all([
+      put(GlobalActions.setMessage(msgProfileUpdated, false)),
+      put(UserActions.getProfile(idApp, isOwner)),
+    ]),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
+
+  yield actions[result]()
+}
+export function* getProfile({ idApp, isOwner }) {
+  const { result, profile } = yield call(userService.getProfile, idApp, isOwner)
+
+  const actions = {
+    OK: () => put(UserActions.setProfile(profile)),
+    ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
+  }
+  yield actions[result]()
+}
 export function* passwordReset(idApp, password, newPassword) {
   const { result } = yield call(userService.passwordReset, idApp, password, newPassword)
   const actions = {
@@ -50,11 +72,12 @@ export function* getVisits({ idApp }) {
   yield actions[result]()
 }
 
-export function* login(idApp, password) {
+export function* login({idApp, password}) {
   const { result, isOwner } = yield call(userService.login, idApp, password)
   const actions = {
     OK: () => all([
       put(UserActions.setIsOwner(isOwner)),
+      put(UserActions.getProfile(idApp, isOwner)),
       NavigationService.navigateAndReset('OptionsScreen')
     ]),
     INVALID: () => put(GlobalActions.setMessage(msgInvalidPassword, true)),
@@ -75,7 +98,7 @@ export function* register(idApp, document, eMail, allotment) {
   yield actions[result]()
 }
 export function* fetchStatus({ idApp }) {
-  const { result } = yield call(userService.fetchUser, idApp)
+  const { result } = yield call(userService.fetchStatus, idApp)
 
   const actions = {
     REGISTER: () => NavigationService.navigateAndReset('RegisterScreen'),
