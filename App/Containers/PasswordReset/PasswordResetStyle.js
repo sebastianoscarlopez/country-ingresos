@@ -8,11 +8,6 @@ export default StyleSheet.create({
     backgroundColor: Colors.black,
     paddingTop: 40,
   },
-  logo: {
-    left: (vw(100) - vh(40)) / 2,
-    width: vh(40),
-    height: vh(40),
-  },
   touchLogin: {
     left: (vw(100) - vh(15)) / 2,
     width: vh(15),

@@ -25,33 +25,34 @@ const ProfileScreen = (props) => {
   const [allotment, setAllotment] = useState(currentAllotment.toString())
   const [allotmentOthers, setAllotmentOthers] = useState(currentAllotmentOthers.toString())
   const [eMail, setEMail] = useState(currentEMail)
-  const [isLoaded, setIsLoaded] = useState(lastProfile && (Date.now() - lastProfile.getTime()) <  1000*60*60)
+  const [isLoaded, setIsLoaded] = useState(lastProfile && (Date.now() - lastProfile.getTime()) < 1000 * 60 * 60)
   const dispatch = useDispatch()
   useEffect(() => {
-    if(!isLoaded){
+    if (!isLoaded) {
       dispatch(UserActions.getProfile(idApp, isOwner))
     }
   }, [isLoaded, dispatch])
   const handlerEnviar = () => dispatch(UserActions.updateProfile(idApp, isOwner, name, phone, eMail))
+  const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
   return (
     <>
       {isLoaded && (
-        <View>
-          <Header icon={Images.profileHeader} text={`${name}`} />
-          <View style={{ padding: 20, height: vh(65) }}>
-            <View style={{ ...styles.rowContainer }}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+          {!isKeyboardVisible && <Header icon={Images.profileHeader} text={`${name}`} />}
+          <View style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 0, height: vh(isKeyboardVisible ? 47 : 65) }}>
+            <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
               <InputField label={nameLabel} value={name} onChangeText={setName} />
             </View>
-            <View style={{ ...styles.rowContainer }}>
+            <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
               <InputField label={phoneLabel} value={phone} onChangeText={setPhone} />
             </View>
-            <View style={{ ...styles.rowContainer }}>
+            <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
               <InputField disabled label={allotmentLabel} value={allotment} />
             </View>
-            <View style={{ ...styles.rowContainer }}>
+            <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
               <InputField disabled label={allotmentOthersLabel} value={allotmentOthers} />
             </View>
-            <View style={{ ...styles.rowContainer }}>
+            <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
               <InputField label={eMailLabel} value={eMail} onChangeText={setEMail} />
             </View>
           </View>
@@ -63,8 +64,8 @@ const ProfileScreen = (props) => {
         </View>
       )}
       {!isLoaded && (
-          <ActivityIndicator size='large' style={{ flex: 1, backgroundColor: Colors.black }} color={Colors.headerBottom} />
-        )
+        <ActivityIndicator size='large' style={{ flex: 1, backgroundColor: Colors.black }} color={Colors.headerBottom} />
+      )
       }
     </>
   )

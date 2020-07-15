@@ -8,11 +8,6 @@ export default StyleSheet.create({
     backgroundColor: Colors.black,
     paddingTop: 40,
   },
-  logo: {
-    left: (vw(100) - vh(30)) / 2,
-    width: vh(30),
-    height: vh(30),
-  },
   touchSend: {
     left: (vw(100) - vh(20)) / 2,
     top: 0,

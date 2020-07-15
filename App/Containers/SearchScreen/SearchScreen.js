@@ -56,7 +56,6 @@ const SearchScreen = (props) => {
               onChangeText={setSearchFilter}
               rounded
             />
-            <Text>{searchFilter}</Text>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <FlatList

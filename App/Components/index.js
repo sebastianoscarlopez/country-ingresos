@@ -7,5 +7,6 @@ import InputFieldBig from './InputFieldBig/InputFieldBig'
 import Header from './Header/Header'
 import Title from './Title/Title'
 import Label from './Label/Label'
+import Logo from './Logo/Logo'
 
-export { OptionButton, Modal, MultilineField, InputField, InputFieldBig, Header, Title, Label, Button }
+export { OptionButton, Modal, MultilineField, InputField, InputFieldBig, Header, Title, Label, Button, Logo }

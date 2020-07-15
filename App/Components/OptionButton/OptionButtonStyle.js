@@ -1,27 +1,24 @@
 import { StyleSheet } from 'react-native'
 import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import { vw, vh } from 'App/Helpers/DimensionsHelper'
 export default StyleSheet.create({
   button: {
     ...Helpers.backgroundReset,
     ...Helpers.fillRow,
-    paddingLeft: 0,
-    paddingRight: 10,
   },
   iconContainer: {
-    ...Helpers.fillCol,
-    justifyContent: 'flex-start',
-    alignSelf: 'flex-start',
-    paddingTop: 20,
-    paddingBottom: 20,
+    width:vw(35),
+    alignSelf: 'center',
   },
   icon: {
-    ...Helpers.fillRow,
-    position: 'relative',
-    left: '-80%',
+    alignSelf: 'center',
+    flex:1,
+    width:vw(25),
+    height:vw(25),
   },
   text: {
     flexDirection: 'column',
-    flex: 1.3,
+    flex: 1,
     ...Helpers.textLeft,
   },
   title: {

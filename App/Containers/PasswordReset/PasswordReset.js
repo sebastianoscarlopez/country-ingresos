@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
 import { Image, Text, View, TouchableOpacity, SafeAreaView } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
-import { InputFieldBig } from 'App/Components'
+import { InputFieldBig, Logo } from 'App/Components'
 import styles from './PasswordResetStyle'
 import { Images } from 'App/Theme'
 import UserActions from 'App/Stores/User/Actions'
@@ -29,9 +29,9 @@ const LoginScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={{ flex: isKeyboardVisible ? 0.01 : 1, paddingTop: 50 }}>
-        <Image source={Images.logo} resizeMode="contain" style={styles.logo} />
+      <Logo />
       </View>
-      <View style={{ flex: isKeyboardVisible ? 0.6 : 1 }}>
+      <View style={{ flex: 1 }}>
         <View
           style={{
             flex: 0.6,

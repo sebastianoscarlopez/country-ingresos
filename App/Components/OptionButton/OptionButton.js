@@ -11,13 +11,13 @@ export default (props) => {
             style={styles.button}
             onPress={onPress}>
             <View style={styles.iconContainer}>
-                <Image source={icon} resizeMode="contain" style={styles.icon}/>
+                <Image source={icon} resizeMode="center" style={styles.icon}/>
             </View>
             <View style={styles.text}>
                 <View style={Helpers.fillRow}>
                     <Text style={styles.title}>{title}</Text>
                 </View>
-                <Text style={styles.description}>{description}</Text>
+                <Text style={{...styles.description, flex: description.length > 0 ? 1 : 0.6}}>{description}</Text>
             </View>
         </TouchableOpacity>
     )
