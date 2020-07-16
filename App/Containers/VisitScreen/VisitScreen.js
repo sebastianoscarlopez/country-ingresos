@@ -39,10 +39,10 @@ const VisitScreen = (props) => {
   const refInputTime = useRef(null)
   useEffect(() => {
     setCheckInDateText(
-      checkInDate.toLocaleDateString('es-AR', { month: '2-digit', day: '2-digit', year: 'numeric' })
+      checkInDate.toDateAR()
     )
     setCheckInTimeText(
-      checkInDate.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+      checkInDate.toTimeAR()
     )
   }, [modalDateVisible])
 
@@ -51,6 +51,7 @@ const VisitScreen = (props) => {
     if(currentDate >= minCheckInDate){
       setCheckInDate(currentDate)
     }
+    setModalDateVisible(false)
   }
   const onFocusCheckIn = (mode, ref) => {
     ref.current.blur()
@@ -58,22 +59,20 @@ const VisitScreen = (props) => {
     setModalDateVisible(true)
   }
   const dispatch = useDispatch()
-  const handlerBack = () => NavigationService.navigateAndReset('VisitListScreen')
+  const handlerBack = () => NavigationService.back()
   const handlerSave = () => dispatch(UserActions.addVisit({idApp, isOwner, name, document, checkInDateText, checkInTimeText, autorization, plate, observation}))
   return (
     <View>
-      <Modal onRequestClose={() => setModalDateVisible(false)} visible={modalDateVisible}>
-        <View style={{ backgroundColor: Colors.white, margin: 50, marginTop: 200 }}>
-          <DateTimePicker
+      {modalDateVisible && (
+        <DateTimePicker
             testID="dateTimePicker"
             value={checkInDate}
             mode={modePicker}
             is24Hour={true}
             display="default"
             onChange={onChangeDate}
-          />
-        </View>
-      </Modal>
+        />
+      )}
       <Header icon={Images.visitHeader} text="Visitas" />
       <View style={{ padding: 20, height: vh(65) }}>
         <View style={{ ...styles.rowContainer }}>

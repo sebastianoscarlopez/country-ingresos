@@ -53,8 +53,12 @@ export function* removeVisit({ idApp, id }) {
 
 export function* addVisit({ data }) {
   const { result, message } = yield call(userService.addVisit, data)
+  const { idApp } = data
   const actions = {
-    OK: () => NavigationService.navigateAndReset('VisitListScreen'),
+    OK: () => all([
+      NavigationService.back(),
+      put(UserActions.getVisits(idApp))
+    ]),
     MESSAGE: () => put(GlobalActions.setMessage(message, true)),
     ERROR: () => put(GlobalActions.setMessage(msgGenericError, true)),
   }

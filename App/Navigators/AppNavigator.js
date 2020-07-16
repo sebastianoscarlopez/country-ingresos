@@ -12,7 +12,7 @@ import StartupScreen from 'App/Containers/StartupScreen/StartupScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
 import PasswordReset from 'App/Containers/PasswordReset/PasswordReset'
 import Title from 'App/Components/Title/Title'
-import { visitTitle, searchTitle, profileTitle, registerTitle } from 'App/Assets/Strings'
+import { visitTitle, searchTitle, profileTitle, registerTitle, passwordResetTitle } from 'App/Assets/Strings'
 
 /**
  * The root screen contains the application's navigation.
@@ -100,7 +100,7 @@ const StackNavigator = createStackNavigator(
       screen: PasswordReset,
       navigationOptions: {
         ...defaultNavigationOptions,
-        header: null,
+        headerTitle: passwordResetTitle,
       },
     },
     // Create the application routes here (the key is the route name, the value is the target screen)

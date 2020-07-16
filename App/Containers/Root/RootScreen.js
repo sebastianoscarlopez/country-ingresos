@@ -10,7 +10,7 @@ import { Modal, Button } from 'App/Components'
 import { Colors, Images } from 'App/Theme'
 
 const RootScreen = (props) => {
-  const [modalVisible, setModalVisible] = useState(true)
+  const [modalVisible, setModalVisible] = useState(false)
   const isError = useSelector(({ global: { isError } }) => isError)
   const message = useSelector(({ global: { message } }) => message)
 

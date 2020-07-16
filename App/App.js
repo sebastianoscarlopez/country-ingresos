@@ -4,6 +4,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
 import SplashScreen from './Containers/SplashScreen/SplashScreen'
+import './Helpers/DateAR'
 
 const { store, persistor } = createStore()
 

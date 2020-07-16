@@ -64,7 +64,7 @@ const VisitListScreen = (props) => {
           ...styles.row,
           backgroundColor: item.id === idSelected
             ? Colors.success
-            : (index % 2 === 1 ? Colors.white : index == 4 ? 'rgba(255,0, 0, 0.6)' : Colors.resaltedRow),
+            : (index % 2 === 1 ? Colors.white : Colors.resaltedRow),
         }}
       >
         <View style={styles.column_1}>

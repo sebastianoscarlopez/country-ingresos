@@ -1,0 +1,2 @@
+Date.prototype.toDateAR = function() { return `${this.getDate().toString().padStart(2,'0')}/${(this.getMonth() + 1).toString().padStart(2,'0')}/${this.getFullYear()}` }
+Date.prototype.toTimeAR = function() { return `${this.getHours().toString().padStart(2,'0')}:${this.getMinutes().toString().padStart(2,'0')}` }
