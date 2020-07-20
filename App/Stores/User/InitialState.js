@@ -1,3 +1,4 @@
+import { Images } from 'App/Theme'
 /**
  * The initial values for the redux state.
  */
@@ -11,5 +12,6 @@ export const INITIAL_STATE = {
   allotment: '',
   allotmentOthers: '',
   eMail: '',
+  profileImage: Images.profileHeader,
   lastProfile: 0
 }

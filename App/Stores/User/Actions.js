@@ -32,6 +32,7 @@ const { Types, Creators } = createActions({
   getProfile: ['idApp', 'isOwner'],
   setProfile: ['profile'],
   updateProfile: ['idApp', 'isOwner', 'name', 'phone', 'eMail'],
+  setProfileImage: ['idApp', 'source']
 })
 
 export const UserTypes = Types

@@ -24,9 +24,9 @@ const RegisterScreen = (props) => {
   const idApp = useSelector(({ user: { idApp } }) => idApp)
   const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
-  const [document, setDocument] = useState('123456789')
-  const [eMail, setEMail] = useState('sebastian.oscar.lopez@gmail.com')
-  const [allotment, setAllotment] = useState('128')
+  const [document, setDocument] = useState('')
+  const [eMail, setEMail] = useState('')
+  const [allotment, setAllotment] = useState('')
   const handlerEnviar = () => dispatch(UserActions.register(idApp, document, eMail, allotment))
 
   return (

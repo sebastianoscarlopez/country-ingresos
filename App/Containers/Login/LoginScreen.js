@@ -14,7 +14,7 @@ const LoginScreen = (props) => {
   const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
   const navigate = (screenID) => dispatch(NavigatorActions.navigate(screenID))
 
-  const [password, setPassword] = useState('1234')
+  const [password, setPassword] = useState('')
 
   const handlerLogin = () => dispatch(UserActions.login(idApp, password))
 

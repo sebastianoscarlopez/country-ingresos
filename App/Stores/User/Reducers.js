@@ -29,9 +29,15 @@ const setProfile = (state, { profile: { name, phone, allotment, allotmentOthers,
   lastProfile: Date.now()
 })
 
+const setProfileImage = (state, { source }) => ({
+  ...state,
+  profileImage: source
+})
+
 export const reducer = createReducer(INITIAL_STATE, {
   [UserTypes.SET_ID_APP]: setIdApp,
   [UserTypes.SET_IS_OWNER]: setIsOwner,
   [UserTypes.SET_VISITS_DATA]: setVisitsData,
   [UserTypes.SET_PROFILE]: setProfile,
+  [UserTypes.SET_PROFILE_IMAGE]: setProfileImage,
 })

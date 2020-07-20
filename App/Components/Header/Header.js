@@ -1,11 +1,11 @@
 import React from 'react'
-import { Image, View, Text } from 'react-native'
+import { Image, View, Text, TouchableOpacity } from 'react-native'
 import { Images, Colors } from 'App/Theme'
 import { vw, vh } from 'App/Helpers/DimensionsHelper'
 import LinearGradient from 'react-native-linear-gradient'
 import styles from './HeaderStyle.js'
 
-export default ({ children, text, icon }) => {
+export default ({ children, text, icon, onPressIcon }) => {
   return (
     <View>
       {!text && (
@@ -21,9 +21,9 @@ export default ({ children, text, icon }) => {
             colors={[Colors.headerTop, Colors.headerBottom]}
             style={{ flex: 1, flexDirection:'row', backgroundColor: Colors.transparent, borderBottomStartRadius: 40, borderBottomEndRadius: 40 }}
           >
-            <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={onPressIcon} style={styles.iconContainer}>
                 <Image source={icon} resizeMode="contain" style={styles.icon}/>
-            </View>
+            </TouchableOpacity>
             <View style={styles.textContainer}>
               <Text style={styles.text}>{text}</Text>
             </View>
