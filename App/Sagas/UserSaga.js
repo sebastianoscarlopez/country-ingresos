@@ -81,7 +81,6 @@ export function* login({idApp, password}) {
   const actions = {
     OK: () => all([
       put(UserActions.setIsOwner(isOwner)),
-      put(UserActions.getProfile(idApp, isOwner)),
       NavigationService.navigateAndReset('OptionsScreen')
     ]),
     INVALID: () => put(GlobalActions.setMessage(msgInvalidPassword, true)),

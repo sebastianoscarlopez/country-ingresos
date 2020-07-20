@@ -16,6 +16,17 @@ import {
 import { vh } from 'App/Helpers/DimensionsHelper'
 import UserActions from 'App/Stores/User/Actions'
 import NavigationService from 'App/Services/NavigationService'
+import ImagePicker from 'react-native-image-picker';
+
+// More info on all the options is below in the API Reference... just some common use cases shown here
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
 const ProfileScreen = (props) => {
   const user = useSelector(({ user }) => user, shallowEqual)
@@ -25,14 +36,27 @@ const ProfileScreen = (props) => {
   const [allotment, setAllotment] = useState(currentAllotment.toString())
   const [allotmentOthers, setAllotmentOthers] = useState(currentAllotmentOthers.toString())
   const [eMail, setEMail] = useState(currentEMail)
-  const [isLoaded, setIsLoaded] = useState(lastProfile && (Date.now() - lastProfile.getTime()) < 1000 * 60 * 60)
+  const [isLoaded, setIsLoaded] = useState(false)
   const dispatch = useDispatch()
+  const handlerEnviar = () => {
+    setIsLoaded(false)
+    dispatch(UserActions.updateProfile(idApp, isOwner, name, phone, eMail))
+  }
+
   useEffect(() => {
     if (!isLoaded) {
       dispatch(UserActions.getProfile(idApp, isOwner))
     }
   }, [isLoaded, dispatch])
-  const handlerEnviar = () => dispatch(UserActions.updateProfile(idApp, isOwner, name, phone, eMail))
+  useEffect(() => {
+    setIsLoaded(true)
+    setName(currentName.toString())
+    setPhone(currentphone.toString())
+    setAllotment(currentAllotment.toString())
+    setAllotmentOthers(currentAllotmentOthers.toString())
+    setEMail(currentEMail.toString())
+  }, [lastProfile])
+
   const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
   return (
     <>

@@ -15,7 +15,7 @@ export default ({ children, text, icon }) => {
           style={{ width: vw(100), height: vw(42) }}
         />
       )}
-      {text && (
+      {!!text && (
         <View style={{ height: vh(15) }}>
           <LinearGradient
             colors={[Colors.headerTop, Colors.headerBottom]}

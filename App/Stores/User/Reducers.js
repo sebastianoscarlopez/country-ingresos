@@ -26,7 +26,7 @@ const setVisitsData = (state, { visitsData }) => ({
 const setProfile = (state, { profile: { name, phone, allotment, allotmentOthers, eMail } }) => ({
   ...state,
   name, phone, allotment, allotmentOthers, eMail,
-  lastProfile: new Date()
+  lastProfile: Date.now()
 })
 
 export const reducer = createReducer(INITIAL_STATE, {

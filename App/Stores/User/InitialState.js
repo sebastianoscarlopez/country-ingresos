@@ -4,7 +4,12 @@
 export const INITIAL_STATE = {
   idApp: '',
   status: 'initial',
-  user: {a:2},
   userIsLoading: true,
   userErrorMessage: 'hola',
+  name: '',
+  phone: '',
+  allotment: '',
+  allotmentOthers: '',
+  eMail: '',
+  lastProfile: 0
 }
