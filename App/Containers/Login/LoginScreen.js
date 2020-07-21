@@ -20,11 +20,14 @@ const LoginScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: isKeyboardVisible ? 0.01 : 1, paddingTop: 50 }}>
-        <Logo />
-      </View>
+      {!isKeyboardVisible &&
+        <View style={{ flex: 1, paddingTop: 30 }}>
+          <Logo />
+        </View>
+      }
       <View style={{ flex: 1 }}>
         <View style={styles.inputContainer}>
+          <Text style={{...styles.legend, paddingBottom:10}}>Ingrese la clave</Text>
           <InputFieldBig
             secureTextEntry
             style={styles.input}

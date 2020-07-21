@@ -31,19 +31,21 @@ const RegisterScreen = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: isKeyboardVisible ? 0.01 : 0.5, paddingTop: 40 }}>
-        <Logo />
-      </View>
-      <View style={{ flex: 1}}>
-        <View style={{ flex: 0.3 }}>
+      {!isKeyboardVisible &&
+        <View style={{ flex: 1, paddingTop: 0 }}>
+          <Logo />
+        </View>
+      }
+      <View style={{ flex: 1 }}>
+        <View style={{ flex: 0.4 }}>
           <Text style={styles.legend}>{registerLegend_1}</Text>
           <Text style={{ ...styles.legend, color: Colors.disabled }}>{registerLegend_2}</Text>
           <Text style={styles.legend}>{registerLegend_3}</Text>
-          <View style={{height:10}}></View>
+          <View style={{ height: 10 }}></View>
         </View>
         <View
           style={{
-            flex: 0.5,
+            flex: 0.6,
             flexDirection: 'column',
             justifyContent: 'center',
           }}

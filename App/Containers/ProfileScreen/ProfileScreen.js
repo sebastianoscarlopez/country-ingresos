@@ -23,6 +23,9 @@ import ImagePicker from 'react-native-image-picker';
 // More info on all the options is below in the API Reference... just some common use cases shown here
 const options = {
   title: 'Imagen de perfil',
+  width: 400,
+  height: 400,
+  cropping: true,
   storageOptions: {
     skipBackup: true,
     path: 'images',
@@ -32,12 +35,12 @@ const options = {
 const ProfileScreen = (props) => {
   const user = useSelector(({ user }) => user, shallowEqual)
   const { idApp, isOwner, name: currentName, phone: currentphone, allotment: currentAllotment, allotmentOthers: currentAllotmentOthers, eMail: currentEMail, profileImage: currentProfileImage, lastProfile } = user
-  const [name, setName] = useState(currentName)
-  const [phone, setPhone] = useState(currentphone)
-  const [allotment, setAllotment] = useState(currentAllotment.toString())
-  const [allotmentOthers, setAllotmentOthers] = useState(currentAllotmentOthers.toString())
-  const [eMail, setEMail] = useState(currentEMail)
-  const [profileImage, setProfileImage] = useState(currentProfileImage)
+  const [name, setName] = useState()
+  const [phone, setPhone] = useState()
+  const [allotment, setAllotment] = useState()
+  const [allotmentOthers, setAllotmentOthers] = useState()
+  const [eMail, setEMail] = useState()
+  const [profileImage, setProfileImage] = useState()
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPickerVisible, setIsPickerVisible] = useState(false)
   const dispatch = useDispatch()
@@ -53,11 +56,12 @@ const ProfileScreen = (props) => {
   }, [isLoaded, dispatch])
   useEffect(() => {
     setIsLoaded(true)
-    setName(currentName.toString())
-    setPhone(currentphone.toString())
-    setAllotment(currentAllotment.toString())
-    setAllotmentOthers(currentAllotmentOthers.toString())
-    setEMail(currentEMail.toString())
+    setName((currentName || '').toString())
+    setPhone((currentphone || '').toString())
+    setAllotment((currentAllotment || '').toString())
+    setAllotmentOthers((currentAllotmentOthers || '').toString())
+    setEMail((currentEMail || '').toString())
+    setProfileImage(currentProfileImage)
   }, [lastProfile])
 
   useEffect(() => {
@@ -75,7 +79,7 @@ const ProfileScreen = (props) => {
       handlerOnPickerClose(response)
     });
   }
-  
+
   const openGallery = () => {
     ImagePicker.launchImageLibrary(options, (response) => {
       handlerOnPickerClose(response)
@@ -83,15 +87,16 @@ const ProfileScreen = (props) => {
   }
 
   const handlerOnPickerClose = (response) => {
+    setIsPickerVisible(false)
     if (!response.didCancel) {
       if (!response.error) {
-        const source = { uri: response.uri }
+        const source = { uri: `file://${response.path}` }
+        //const source = { uri: 'data:image/jpeg;base64,' + response.data };
         dispatch(UserActions.setProfileImage(idApp, source))
       } else {
         dispatch(GlobalActions.setMessage(msgGenericError, true))
       }
     }
-    setIsPickerVisible(false)
   }
   return (
     <>

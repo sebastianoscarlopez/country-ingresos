@@ -12,5 +12,6 @@ export default StyleSheet.create({
        ...Helpers.center,
        borderColor: Colors.inputsBorder,
        borderWidth: 0.2,
+       borderRadius: 50
     }
  })
