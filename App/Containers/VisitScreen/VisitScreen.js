@@ -13,7 +13,7 @@ import {
   dateLabel as checkInDateLabel,
   checkInTimeLabel,
   requiredLabel,
-  patentLabel,
+  plateLabel,
   observationLabel,
 } from 'App/Assets/Strings'
 import { vh } from 'App/Helpers/DimensionsHelper'
@@ -22,8 +22,9 @@ import NavigationService from 'App/Services/NavigationService'
 import UserActions from 'App/Stores/User/Actions'
 
 const VisitScreen = (props) => {
-  const { idApp, isOwner } = useSelector(({user: { idApp, isOwner }}) => ({ idApp, isOwner }))
-  const now = new Date(new Date().getTime() + 30*60000)
+  const { idApp, isOwner } = useSelector(({ user: { idApp, isOwner } }) => ({ idApp, isOwner }))
+  const isKeyboardVisible = useSelector(({ global: { isKeyboardVisible } }) => isKeyboardVisible)
+  const now = new Date(new Date().getTime() + 30 * 60000)
   const minCheckInDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())
   const [name, setName] = useState('')
   const [document, setDocumentName] = useState('')
@@ -35,6 +36,8 @@ const VisitScreen = (props) => {
   const [observation, setObservation] = useState('')
   const [modalDateVisible, setModalDateVisible] = useState(false)
   const [modePicker, setModePicker] = useState('date')
+  const [focusId, setFocusId] = useState('false')
+
   const refInputDate = useRef(null)
   const refInputTime = useRef(null)
   useEffect(() => {
@@ -48,73 +51,86 @@ const VisitScreen = (props) => {
 
   const onChangeDate = (event, selectedDate) => {
     const currentDate = selectedDate || checkInDate
-    if(currentDate >= minCheckInDate){
+    if (currentDate >= minCheckInDate) {
       setCheckInDate(currentDate)
     }
     setModalDateVisible(false)
   }
   const onFocusCheckIn = (mode, ref) => {
     ref.current.blur()
+    setFocusId('')
     setModePicker(mode)
     setModalDateVisible(true)
   }
   const dispatch = useDispatch()
   const handlerBack = () => NavigationService.back()
-  const handlerSave = () => dispatch(UserActions.addVisit({idApp, isOwner, name, document, checkInDateText, checkInTimeText, autorization, plate, observation}))
+  const handlerSave = () => dispatch(UserActions.addVisit({ idApp, isOwner, name, document, checkInDateText, checkInTimeText, autorization, plate, observation }))
+
   return (
     <View>
       {modalDateVisible && (
         <DateTimePicker
-            testID="dateTimePicker"
-            value={checkInDate}
-            mode={modePicker}
-            is24Hour={true}
-            display="default"
-            onChange={onChangeDate}
+          testID="dateTimePicker"
+          value={checkInDate}
+          mode={modePicker}
+          is24Hour={true}
+          display="default"
+          onChange={onChangeDate}
         />
       )}
-      <Header icon={Images.visitHeader} text="Visitas" />
-      <View style={{ padding: 20, height: vh(65) }}>
-        <View style={{ ...styles.rowContainer }}>
-          <InputField label={nameLabel} value={name} onChangeText={setName} />
-        </View>
-        <View style={styles.rowContainer}>
-          <InputField label={documentLabel} value={document} onChangeText={setDocumentName} />
-        </View>
-        <View style={styles.rowContainer}>
-          <InputField
-            ref={refInputDate}
-            onFocus={onFocusCheckIn.bind(null, 'date', refInputDate)}
-            label={checkInDateLabel}
-            value={checkInDateText}
-            focusable={false}
-          />
-          <View style={{ width: 50 }} />
-          <InputField
-            ref={refInputTime}
-            onFocus={onFocusCheckIn.bind(null, 'time', refInputTime)}
-            label={checkInTimeLabel}
-            value={checkInTimeText}
-          />
-        </View>
+      {(!isKeyboardVisible || ![observationLabel, plateLabel].includes(focusId)) &&
+        <Header icon={Images.visitHeader} text="Visitas" />
+      }
+      <View style={{ padding: 20, paddingTop: 10, height: vh((!isKeyboardVisible || ![observationLabel, plateLabel].includes(focusId)) ? 65 : 35) }}>
+        {(!isKeyboardVisible || ![observationLabel, plateLabel].includes(focusId)) &&
+          <>
+            <View style={{ ...styles.rowContainer }}>
+              <InputField onFocus={setFocusId.bind(null, '')} label={nameLabel} required value={name} onChangeText={setName} />
+            </View>
+            <View style={styles.rowContainer}>
+              <InputField onFocus={setFocusId.bind(null, '')} label={documentLabel} required value={document} onChangeText={setDocumentName} />
+            </View>
+            <View style={styles.rowContainer}>
+              <InputField
+                ref={refInputDate}
+                onFocus={onFocusCheckIn.bind(null, 'date', refInputDate)}
+                label={checkInDateLabel}
+                value={checkInDateText}
+                focusable={false}
+                required
+              />
+              <View style={{ width: 50 }} />
+              <InputField
+                ref={refInputTime}
+                onFocus={onFocusCheckIn.bind(null, 'time', refInputTime)}
+                label={checkInTimeLabel}
+                value={checkInTimeText}
+                required
+              />
+            </View>
+          </>
+        }
         <View style={styles.rowContainer}>
           <Button
             textStyle={{ margin: 7 }}
             style={{ backgroundColor: autorization ? Colors.error : Colors.success }}
             label={requiredLabel}
             value={autorization}
-            onPress={() => setAutorization(!autorization)}
+            onPress={() => {
+              setAutorization(!autorization)
+              setFocusId('')
+            }}
           >
             {autorization ? 'SI' : 'NO'}
           </Button>
           <View style={{ width: 50 }} />
-          <InputField label={patentLabel} value={plate} onChangeText={setPlate} />
+          <InputField onFocus={setFocusId.bind(null, plateLabel)} label={plateLabel} value={plate} onChangeText={setPlate} required />
         </View>
-        <View style={{ ...styles.rowContainer, marginTop: 20 }}>
+        <View style={{ ...styles.rowContainer, marginTop: 0 }}>
           <Label>{observationLabel}</Label>
         </View>
         <View style={{ ...styles.rowContainer, marginTop: 0 }}>
-          <MultilineField maxLength={200} value={observation} onChangeText={setObservation} />
+          <MultilineField onFocus={setFocusId.bind(null, observationLabel)} maxLength={200} value={observation} onChangeText={setObservation} />
         </View>
       </View>
       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>

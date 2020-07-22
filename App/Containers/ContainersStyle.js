@@ -9,7 +9,7 @@ export default StyleSheet.create({
      },
     rowContainer: {
         flexDirection: 'row',
-        ...Metrics.tinyVerticalMargin
+        marginTop:5
     },
     columnContainer: {
         flexDirection: 'column',

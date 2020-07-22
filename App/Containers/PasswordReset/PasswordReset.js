@@ -28,9 +28,11 @@ const LoginScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: isKeyboardVisible ? 0.01 : 1, paddingTop: 50 }}>
-      <Logo />
-      </View>
+      {!isKeyboardVisible &&
+        <View style={{ flex: 1, paddingTop: 0 }}>
+          <Logo />
+        </View>
+      }
       <View style={{ flex: 1 }}>
         <View
           style={{

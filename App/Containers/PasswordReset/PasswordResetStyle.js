@@ -36,8 +36,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.black,
   },
   loginContainer: {
-    flex: 0.5,
+    flex: 0.4,
     justifyContent: 'flex-end',
-    paddingBottom: 40,
+    paddingBottom: 20,
   },
 })

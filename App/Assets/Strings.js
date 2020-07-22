@@ -15,7 +15,7 @@ export const documentLabel = 'DNI'
 export const dateLabel = 'Fecha de ingreso'
 export const checkInTimeLabel = 'Hora de ingreso'
 export const requiredLabel = 'Requiere autorización'
-export const patentLabel = 'Patente'
+export const plateLabel = 'Patente'
 export const observationLabel = 'Observaciones'
 
 export const acceptButton = 'ACEPTAR'
