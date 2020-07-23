@@ -18,5 +18,6 @@ export default {
   headerTop: '#ffc900',
   headerBottom: '#ff9003',
   disabled:'#AAAAAA',
+  disabledTrasparent:'rgba(0,0,0,0.1)',
   resaltedRow:'#DDDDDD',
 }

@@ -88,7 +88,7 @@ const VisitScreen = (props) => {
               <InputField onFocus={setFocusId.bind(null, '')} label={nameLabel} required value={name} onChangeText={setName} />
             </View>
             <View style={styles.rowContainer}>
-              <InputField onFocus={setFocusId.bind(null, '')} label={documentLabel} required value={document} onChangeText={setDocumentName} />
+              <InputField keyboardType='numeric' onFocus={setFocusId.bind(null, '')} label={documentLabel} required value={document} onChangeText={setDocumentName} />
             </View>
             <View style={styles.rowContainer}>
               <InputField

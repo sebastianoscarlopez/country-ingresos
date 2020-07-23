@@ -35,7 +35,7 @@ const defaultNavigationOptions = {
 const StackNavigator = createStackNavigator(
   {
     MainScreen: {
-      screen: StartupScreen,
+      screen: ProfileScreen,
       navigationOptions: {
         ...defaultNavigationOptions,
         header: null,

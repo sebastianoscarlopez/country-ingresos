@@ -128,7 +128,7 @@ const ProfileScreen = (props) => {
               <InputField disabled label={allotmentOthersLabel} value={allotmentOthers} />
             </View>
             <View style={{ flexDirection: 'row', marginVertical: isKeyboardVisible ? 0 : 4 }}>
-              <InputField label={eMailLabel} value={eMail} onChangeText={setEMail} />
+              <InputField autoCapitalize='none' label={eMailLabel} value={eMail} onChangeText={setEMail} />
             </View>
           </View>
           <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
