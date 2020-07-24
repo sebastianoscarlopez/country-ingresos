@@ -18,18 +18,24 @@ import { vh } from 'App/Helpers/DimensionsHelper'
 import UserActions from 'App/Stores/User/Actions'
 import GlobalActions from 'App/Stores/Global/Actions'
 import NavigationService from 'App/Services/NavigationService'
-import ImagePicker from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-crop-picker';
 
 // More info on all the options is below in the API Reference... just some common use cases shown here
 const options = {
-  title: 'Imagen de perfil',
-  width: 400,
-  height: 400,
+  width: 500,
+  height: 500,
   cropping: true,
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
+  cropperCircleOverlay: true,
+  sortOrder: 'none',
+  compressImageMaxWidth: 500,
+  compressImageMaxHeight: 500,
+  compressImageQuality: 0.8,
+  includeBase64: true,
+  includeExif: true,
+  cropperStatusBarColor: 'white',
+  cropperToolbarColor: 'white',
+  cropperActiveWidgetColor: 'white',
+  cropperToolbarWidgetColor: '#3498DB',
 }
 
 const ProfileScreen = (props) => {
@@ -75,28 +81,32 @@ const ProfileScreen = (props) => {
   }
 
   const openCamera = () => {
-    ImagePicker.launchCamera(options, (response) => {
-      handlerOnPickerClose(response)
-    });
+
+    ImagePicker.openCamera(options)
+      .then((response) => {
+        handlerOnPickerClose(response)
+      })
+      .catch((e) => {
+        dispatch(GlobalActions.setMessage(msgGenericError, true))
+      })
   }
 
   const openGallery = () => {
-    ImagePicker.launchImageLibrary(options, (response) => {
-      handlerOnPickerClose(response)
-    });
+
+    ImagePicker.openPicker(options)
+      .then((response) => {
+        handlerOnPickerClose(response)
+      })
+      .catch((e) => {
+        dispatch(GlobalActions.setMessage(msgGenericError, true))
+      })
   }
 
   const handlerOnPickerClose = (response) => {
     setIsPickerVisible(false)
-    if (!response.didCancel) {
-      if (!response.error) {
-        const source = { uri: `file://${response.path}` }
-        //const source = { uri: 'data:image/jpeg;base64,' + response.data };
-        dispatch(UserActions.setProfileImage(idApp, source))
-      } else {
-        dispatch(GlobalActions.setMessage(msgGenericError, true))
-      }
-    }
+    //const source = { uri: `file://${response.path}` }
+    const source = { uri: 'data:image/jpeg;base64,' + response.data };
+    dispatch(UserActions.setProfileImage(idApp, source))
   }
   return (
     <>

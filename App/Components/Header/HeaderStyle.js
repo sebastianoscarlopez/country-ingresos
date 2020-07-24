@@ -19,6 +19,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
     width: vh(10),
     height: vh(10),
+    borderRadius: vh(20),
+    overflow: "hidden",
+    borderWidth: 3,
   },
   textContainer: {
     flex: 0.7,
