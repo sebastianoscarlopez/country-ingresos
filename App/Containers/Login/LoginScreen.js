@@ -41,6 +41,15 @@ const LoginScreen = (props) => {
             <Image source={Images.login} resizeMode="contain" style={styles.login} />
           </TouchableOpacity>
         </View>
+        {isKeyboardVisible && Platform.OS === 'ios' &&
+          <View
+            style={{
+              flex: 0.9,
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          />
+        }
       </View>
     </View>
   )

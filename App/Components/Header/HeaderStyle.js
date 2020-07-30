@@ -13,6 +13,7 @@ export default StyleSheet.create({
     flex:0.3,
     justifyContent: 'center',
     alignSelf: 'center',
+    borderColor:Colors.error
   },
   icon: {
     justifyContent: 'center',
@@ -21,12 +22,11 @@ export default StyleSheet.create({
     height: vh(10),
     borderRadius: vh(20),
     overflow: "hidden",
-    borderWidth: 3,
   },
   textContainer: {
     flex: 0.7,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     ...Fonts.h3,

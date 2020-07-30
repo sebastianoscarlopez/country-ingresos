@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import UserActions from 'App/Stores/User/Actions'
 import { Image, Text, View, AsyncStorage } from 'react-native'
 import 'react-native-get-random-values'
-import { uuid } from 'uuidv4';
+import { getUniqueId, getManufacturer } from 'react-native-device-info';
 
 /**
  * The startup saga is the place to define behavior to execute when the application starts.
@@ -12,7 +12,7 @@ const getStatus = state => state.user.status;
 export function* startup() {
   let idApp = yield select(getIdApp)
   if(idApp.length === 0){
-    const newIdApp = uuid()
+    const newIdApp = getUniqueId()
     yield put(UserActions.setIdApp(newIdApp))
     idApp = yield select(getIdApp)
   }

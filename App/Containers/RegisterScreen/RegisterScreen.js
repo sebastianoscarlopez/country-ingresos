@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import NavigatorActions from 'App/Stores/Navigator/Actions'
-import { TextInput, Text, Image, View } from 'react-native'
+import { TextInput, Text, Image, View, Platform } from 'react-native'
 import ContainerScreen from 'App/Containers/ContainerScreen/ContainerScreen'
 import { InputFieldBig, Button, Logo } from 'App/Components'
 import {
@@ -65,6 +65,15 @@ const RegisterScreen = (props) => {
             <Image source={Images.send} resizeMode="contain" style={styles.send} />
           </TouchableOpacity>
         </View>
+        {isKeyboardVisible && Platform.OS === 'ios' &&
+          <View
+            style={{
+              flex: 0.9,
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          />
+        }
       </View>
     </SafeAreaView>
   )
