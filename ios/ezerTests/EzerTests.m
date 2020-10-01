@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface CountryIngresosTests : XCTestCase
+@interface EzerTests : XCTestCase
 
 @end
 
-@implementation CountryIngresosTests
+@implementation EzerTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

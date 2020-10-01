@@ -1,4 +1,4 @@
-package com.countryingresos;
+package com.ezer2;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "CountryIngresos";
+        return "ezer2";
     }
 
     @Override

@@ -11,39 +11,39 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		298566B4182437FDC9416AAA /* libPods-CountryIngresos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD0398590D8F93705C82ABE /* libPods-CountryIngresos.a */; };
+		298566B4182437FDC9416AAA /* libPods-ezer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD0398590D8F93705C82ABE /* libPods-ezer.a */; };
 		BEDAA4C29F2A455594DDC00A /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECFD547ABDD40A8941F8AC8 /* libRNGestureHandler.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0048B5962F042D541D140586 /* Pods-CountryIngresos-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-CountryIngresos-tvOSTests/Pods-CountryIngresos-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		0048B5962F042D541D140586 /* Pods-ezer-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ezer-tvOSTests/Pods-ezer-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* CountryIngresosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryIngresosTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Country Ingresos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Country Ingresos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CountryIngresos/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CountryIngresos/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ezerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ezerTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ezer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ezer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ezer/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ezer/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CountryIngresos/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CountryIngresos/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CountryIngresos/main.m; sourceTree = "<group>"; };
-		262FB68990FABB4B74A57DD9 /* libPods-CountryIngresos-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CountryIngresos-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ezer/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ezer/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ezer/main.m; sourceTree = "<group>"; };
+		262FB68990FABB4B74A57DD9 /* libPods-ezer-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezer-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		34E316EC11926A316EADC97C /* Pods-CountryIngresos-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos-tvOS.release.xcconfig"; path = "Target Support Files/Pods-CountryIngresos-tvOS/Pods-CountryIngresos-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		392317E8F372604E55971F70 /* Pods-CountryIngresosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresosTests.release.xcconfig"; path = "Target Support Files/Pods-CountryIngresosTests/Pods-CountryIngresosTests.release.xcconfig"; sourceTree = "<group>"; };
-		46C2C6D1905A57358D15545F /* libPods-CountryIngresos-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CountryIngresos-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5329D520C5178EF1D2E66068 /* libPods-CountryIngresosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CountryIngresosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C3EFA04EABA7989E628AC64 /* Pods-CountryIngresos-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-CountryIngresos-tvOSTests/Pods-CountryIngresos-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		75E936EB1A3002F6A9AB4156 /* Pods-CountryIngresos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos.release.xcconfig"; path = "Target Support Files/Pods-CountryIngresos/Pods-CountryIngresos.release.xcconfig"; sourceTree = "<group>"; };
-		764AD50AC6F939E0A1C08B00 /* Pods-CountryIngresosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresosTests.debug.xcconfig"; path = "Target Support Files/Pods-CountryIngresosTests/Pods-CountryIngresosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34E316EC11926A316EADC97C /* Pods-ezer-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ezer-tvOS/Pods-ezer-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		392317E8F372604E55971F70 /* Pods-ezerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezerTests.release.xcconfig"; path = "Target Support Files/Pods-ezerTests/Pods-ezerTests.release.xcconfig"; sourceTree = "<group>"; };
+		46C2C6D1905A57358D15545F /* libPods-ezer-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezer-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5329D520C5178EF1D2E66068 /* libPods-ezerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3EFA04EABA7989E628AC64 /* Pods-ezer-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ezer-tvOSTests/Pods-ezer-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75E936EB1A3002F6A9AB4156 /* Pods-ezer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer.release.xcconfig"; path = "Target Support Files/Pods-ezer/Pods-ezer.release.xcconfig"; sourceTree = "<group>"; };
+		764AD50AC6F939E0A1C08B00 /* Pods-ezerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezerTests.debug.xcconfig"; path = "Target Support Files/Pods-ezerTests/Pods-ezerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7ECFD547ABDD40A8941F8AC8 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
-		B47D75E5D1913E2479AB2B8D /* Pods-CountryIngresos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos.debug.xcconfig"; path = "Target Support Files/Pods-CountryIngresos/Pods-CountryIngresos.debug.xcconfig"; sourceTree = "<group>"; };
+		B47D75E5D1913E2479AB2B8D /* Pods-ezer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer.debug.xcconfig"; path = "Target Support Files/Pods-ezer/Pods-ezer.debug.xcconfig"; sourceTree = "<group>"; };
 		EB604BAD56CE40729982F1CB /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EDD0398590D8F93705C82ABE /* libPods-CountryIngresos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CountryIngresos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB800E05AFB04A97491C501A /* Pods-CountryIngresos-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryIngresos-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-CountryIngresos-tvOS/Pods-CountryIngresos-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EDD0398590D8F93705C82ABE /* libPods-ezer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB800E05AFB04A97491C501A /* Pods-ezer-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezer-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ezer-tvOS/Pods-ezer-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,20 +53,20 @@
 			files = (
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				BEDAA4C29F2A455594DDC00A /* libRNGestureHandler.a in Frameworks */,
-				298566B4182437FDC9416AAA /* libPods-CountryIngresos.a in Frameworks */,
+				298566B4182437FDC9416AAA /* libPods-ezer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* CountryIngresosTests */ = {
+		00E356EF1AD99517003FC87E /* ezerTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* CountryIngresosTests.m */,
+				00E356F21AD99517003FC87E /* ezerTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = CountryIngresosTests;
+			path = ezerTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -86,7 +86,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* CountryIngresos */ = {
+		13B07FAE1A68108700A75B9A /* ezer */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -97,7 +97,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = CountryIngresos;
+			name = ezer;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -106,10 +106,10 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				EDD0398590D8F93705C82ABE /* libPods-CountryIngresos.a */,
-				46C2C6D1905A57358D15545F /* libPods-CountryIngresos-tvOS.a */,
-				262FB68990FABB4B74A57DD9 /* libPods-CountryIngresos-tvOSTests.a */,
-				5329D520C5178EF1D2E66068 /* libPods-CountryIngresosTests.a */,
+				EDD0398590D8F93705C82ABE /* libPods-ezer.a */,
+				46C2C6D1905A57358D15545F /* libPods-ezer-tvOS.a */,
+				262FB68990FABB4B74A57DD9 /* libPods-ezer-tvOSTests.a */,
+				5329D520C5178EF1D2E66068 /* libPods-ezerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,14 +117,14 @@
 		6B80F6007C5408FEF5BD69DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B47D75E5D1913E2479AB2B8D /* Pods-CountryIngresos.debug.xcconfig */,
-				75E936EB1A3002F6A9AB4156 /* Pods-CountryIngresos.release.xcconfig */,
-				FB800E05AFB04A97491C501A /* Pods-CountryIngresos-tvOS.debug.xcconfig */,
-				34E316EC11926A316EADC97C /* Pods-CountryIngresos-tvOS.release.xcconfig */,
-				5C3EFA04EABA7989E628AC64 /* Pods-CountryIngresos-tvOSTests.debug.xcconfig */,
-				0048B5962F042D541D140586 /* Pods-CountryIngresos-tvOSTests.release.xcconfig */,
-				764AD50AC6F939E0A1C08B00 /* Pods-CountryIngresosTests.debug.xcconfig */,
-				392317E8F372604E55971F70 /* Pods-CountryIngresosTests.release.xcconfig */,
+				B47D75E5D1913E2479AB2B8D /* Pods-ezer.debug.xcconfig */,
+				75E936EB1A3002F6A9AB4156 /* Pods-ezer.release.xcconfig */,
+				FB800E05AFB04A97491C501A /* Pods-ezer-tvOS.debug.xcconfig */,
+				34E316EC11926A316EADC97C /* Pods-ezer-tvOS.release.xcconfig */,
+				5C3EFA04EABA7989E628AC64 /* Pods-ezer-tvOSTests.debug.xcconfig */,
+				0048B5962F042D541D140586 /* Pods-ezer-tvOSTests.release.xcconfig */,
+				764AD50AC6F939E0A1C08B00 /* Pods-ezerTests.debug.xcconfig */,
+				392317E8F372604E55971F70 /* Pods-ezerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -139,9 +139,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* CountryIngresos */,
+				13B07FAE1A68108700A75B9A /* ezer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* CountryIngresosTests */,
+				00E356EF1AD99517003FC87E /* ezerTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0476B6D92256026C006BDB17 /* Recovered References */,
@@ -155,7 +155,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Country Ingresos.app */,
+				13B07F961A680F5B00A75B9A /* ezer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,9 +163,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* CountryIngresos */ = {
+		13B07F861A680F5B00A75B9A /* ezer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CountryIngresos" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ezer" */;
 			buildPhases = (
 				1876371A241F99EEA27D744C /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -178,9 +178,9 @@
 			);
 			dependencies = (
 			);
-			name = CountryIngresos;
+			name = ezer;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* Country Ingresos.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ezer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +198,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CountryIngresos" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ezer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -212,7 +212,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* CountryIngresos */,
+				13B07F861A680F5B00A75B9A /* ezer */,
 			);
 		};
 /* End PBXProject section */
@@ -250,7 +250,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CountryIngresos/Pods-CountryIngresos-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ezer/Pods-ezer-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TOCropViewController/TOCropViewControllerBundle.bundle",
 			);
@@ -261,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CountryIngresos/Pods-CountryIngresos-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ezer/Pods-ezer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1876371A241F99EEA27D744C /* [CP] Check Pods Manifest.lock */ = {
@@ -279,7 +279,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CountryIngresos-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ezer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -307,7 +307,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = CountryIngresos;
+			path = ezer;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -315,20 +315,20 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B47D75E5D1913E2479AB2B8D /* Pods-CountryIngresos.debug.xcconfig */;
+			baseConfigurationReference = B47D75E5D1913E2479AB2B8D /* Pods-ezer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 324J3472F7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-gesture-handlerios/**",
 				);
-				INFOPLIST_FILE = CountryIngresos/Info.plist;
+				INFOPLIST_FILE = ezer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -336,7 +336,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seguridadezer.countryingresos;
-				PRODUCT_NAME = "Country Ingresos";
+				PRODUCT_NAME = ezer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -344,20 +344,20 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75E936EB1A3002F6A9AB4156 /* Pods-CountryIngresos.release.xcconfig */;
+			baseConfigurationReference = 75E936EB1A3002F6A9AB4156 /* Pods-ezer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 324J3472F7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-gesture-handlerios/**",
 				);
-				INFOPLIST_FILE = CountryIngresos/Info.plist;
+				INFOPLIST_FILE = ezer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -365,7 +365,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seguridadezer.countryingresos;
-				PRODUCT_NAME = "Country Ingresos";
+				PRODUCT_NAME = ezer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -473,7 +473,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CountryIngresos" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ezer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -482,7 +482,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CountryIngresos" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ezer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
